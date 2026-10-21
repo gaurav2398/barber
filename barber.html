@@ -377,6 +377,9 @@ dialog { max-height: 92vh; overflow-y: auto; }
 .info-slide .state { margin-left: 8px; }
 .shop-head .shop-login { min-height: 26px; margin-top: -6px; }
 
+.pay-hint { background: var(--amber-bg); color: var(--amber); }
+.hint-x { flex: none; width: 36px; height: 36px; border: 0; border-radius: 50%; background: rgba(0,0,0,.08); color: inherit; font-size: 22px; line-height: 1; cursor: pointer; }
+
   </style>
 </head>
 <body>
@@ -390,7 +393,7 @@ dialog { max-height: 92vh; overflow-y: auto; }
     <span class="pole" aria-hidden="true"></span>
     <div class="sh-text">
       <h1><span id="shopName">सलून</span><em id="closedTag" class="closed-tag" hidden>बंद</em></h1>
-      <a class="shop-login" href="#barber"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg> लॉगिन</a>
+      <a id="loginLink" class="shop-login" href="#barber"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg> <span>लॉगिन</span></a>
     </div>
     <a id="phoneText" class="shop-call" href="#" aria-label="केशकर्तनकारांना फोन करा">
       <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>
@@ -510,9 +513,15 @@ dialog { max-height: 92vh; overflow-y: auto; }
         <button id="pushBtn" class="btn btn-dark btn-sm" type="button">चालू करा</button>
       </div>
 
+      <div id="payHint" class="push-banner pay-hint" hidden>
+        <span>ग्राहकांकडून QR ने पैसे घेण्यासाठी तुमचा पेमेंट QR जोडा.</span>
+        <button id="payHintBtn" class="btn btn-dark btn-sm" type="button">QR जोडा</button>
+        <button id="payHintX" class="hint-x" type="button" aria-label="ही सूचना बंद करा">&times;</button>
+      </div>
+
       <div class="toolbar">
         <button id="walkinBtn" class="btn btn-dark" type="button">ग्राहक जोडा</button>
-        <a id="custLink" class="btn btn-ghost" href="./" target="_blank" rel="noopener">ग्राहक पान</a>
+        <a id="custLink" class="btn btn-ghost" href="./">ग्राहक पान</a>
         <button id="shopBtn" class="btn btn-ghost" type="button">दुकान माहिती</button>
         <button id="photoBtn" class="btn btn-ghost" type="button">स्लायडर फोटो</button>
         <button id="svcBtn" class="btn btn-ghost" type="button">सेवा व दर</button>
@@ -714,7 +723,7 @@ dialog { max-height: 92vh; overflow-y: auto; }
 //  browser only, nothing is shared between phones).
 // ---------------------------------------------------------------
 const CONFIG = {
-  VERSION: '15', // shown at the bottom of the pages, so you can tell which file is running
+  VERSION: '17', // shown at the bottom of the pages, so you can tell which file is running
   // Supabase: Project Settings > API
   SUPABASE_URL: 'https://qignpnpuuowsuxyqxgel.supabase.co',
   SUPABASE_ANON_KEY: 'sb_publishable_AqLowFoKA_aw4U8vdEGAZg_KoBfm27a',
@@ -2020,6 +2029,7 @@ function findMe() {
 /* ------------------------------------------------------------------ render */
 function renderHeader() {
   document.title = `${shop.shop_name} | नंबर लावा`;
+  if (localStorage.getItem('bq_barber_token')) $('loginLink').querySelector('span').textContent = 'डॅशबोर्ड'; // he is signed in: one tap back
   $('shopName').textContent = shop.shop_name;
   const phone = String(shop.phone || '');
   $('phoneNum').textContent = phone;
@@ -2598,6 +2608,10 @@ function render() {
   $('sMoney').hidden = !earnings;
   const sig = JSON.stringify(servicesOf());
   if (sig !== svcSig) { svcSig = sig; fillServices($('wService'), servicesOf()); }
+  // until a payment QR or UPI id is saved: a hint, and the button says "add"
+  const noPay = !shop.has_qr && !String(shop.upi_id || '').trim();
+  $('payHint').hidden = !noPay || localStorage.getItem('bq_hide_payhint') === '1';
+  $('payBtn').textContent = noPay ? 'पेमेंट QR जोडा' : 'पेमेंट QR';
   $('chairBody').innerHTML = chairHTML();
   $('waitCount').textContent = q.waiting.length ? `${q.waiting.length} प्रतीक्षेत` : '';
   $('waitList').innerHTML = q.waiting.length
@@ -2852,6 +2866,8 @@ $('svcSave').addEventListener('click', async () => {
 });
 
 /* ---------- payment QR ---------- */
+$('payHintBtn').addEventListener('click', () => $('payBtn').click());
+$('payHintX').addEventListener('click', () => { localStorage.setItem('bq_hide_payhint', '1'); $('payHint').hidden = true; });
 let pendingQr; // undefined = unchanged, '' = remove, 'data:...' = new picture
 const paySay = (t, bad = false) => { $('payMsg').textContent = t; $('payMsg').classList.toggle('err', bad); $('payMsg').hidden = !t; };
 function showPayPreview(src) {
@@ -2969,10 +2985,14 @@ $('walkForm').addEventListener('submit', async (e) => {
 /* ------------------------------------------------------------------ start */
 (async function init() {
   $('ver').textContent = `आवृत्ती ${CONFIG.VERSION}`;
-  // links back to the customer page: the current file without "#barber", so they work for any file name or address
+  // "customer page": show it in THIS tab by clearing the "#barber" part of the address. Nothing is opened or
+  // downloaded, so it works from a file on the computer, from GitHub, in an installed app, with pop-ups blocked.
+  // The "लॉगिन/डॅशबोर्ड" link on the customer page brings him straight back (he stays signed in).
   const here = location.href.split('#')[0];
-  $('custLink').href = here;
-  $('backLink').href = here;
+  [$('custLink'), $('backLink')].forEach((a) => {
+    a.href = here; // still a normal link (right-click, long press)
+    a.addEventListener('click', (e) => { e.preventDefault(); location.hash = ''; });
+  });
   attachMic($('sName'), $('sNameMic'), $('sNameSt'), CONFIG.SPEECH_LANG, 'text');
   attachMic($('sBarber'), $('sBarberMic'), $('sBarberSt'), CONFIG.SPEECH_LANG, 'name');
   attachMic($('sPhone'), $('sPhoneMic'), $('sPhoneSt'), CONFIG.SPEECH_LANG, 'phone');
