@@ -69,14 +69,12 @@ button, input { font: inherit; color: inherit; }
 .demo-banner { background: var(--amber-bg); color: var(--amber); font-size: 14px; line-height: 1.4; padding: 8px 16px; text-align: center; }
 
 /* ============================ HERO (small slider) ============================ */
-.hero { position: relative; height: clamp(104px, 30vw, 156px); background: var(--ink); overflow: hidden; max-width: 560px; margin: 0 auto; }
+.hero { position: relative; height: clamp(150px, 42vw, 200px); background: var(--ink); overflow: hidden; max-width: 560px; margin: 0 auto; }
 .slides { display: flex; height: 100%; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
 .slides::-webkit-scrollbar { display: none; }
 .slide { flex: 0 0 100%; height: 100%; scroll-snap-align: center; margin: 0; }
 .slide img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; display: block; }
 .hero-shade { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(to bottom, rgba(15,27,48,0) 55%, rgba(15,27,48,.6) 100%); }
-.hero.no-photos { display: none; }
-.hero.no-photos + .live { margin-top: 10px; }
 .dots { position: absolute; left: 0; right: 0; bottom: 26px; z-index: 3; display: flex; justify-content: center; gap: 6px; }
 .dots button { width: 7px; height: 7px; padding: 0; border: 0; border-radius: 4px; background: rgba(255,255,255,.55); transition: width .2s, background .2s; }
 .dots button[aria-current="true"] { width: 20px; background: var(--brass-light); }
@@ -318,6 +316,67 @@ dialog h2 { margin-bottom: 2px; }
 .photo-empty { grid-column: 1 / -1; padding: 14px 4px; color: var(--steel); }
 label.btn input { display: none; }
 
+/* call button for each customer (barber) */
+.b-side { display: grid; justify-items: end; align-content: start; gap: 8px; }
+.call-btn { flex: 0 0 46px; width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center; background: #1f8f4d; color: #fff; text-decoration: none; box-shadow: inset 0 -3px 0 rgba(0,0,0,.2); }
+.call-btn:active { transform: scale(.94); }
+.b-actions .call-btn { align-self: center; }
+
+/* ============================ v14 additions ============================ */
+dialog { max-height: 92vh; overflow-y: auto; }
+.notice { max-width: 560px; margin: 0 auto; padding: 9px 14px; background: var(--amber-bg); color: var(--amber); border-bottom: 1px solid #f0d9a0; font-weight: 700; font-size: 15px; line-height: 1.4; text-align: center; }
+.contact-address { text-decoration: underline dotted rgba(255,255,255,.4); text-underline-offset: 3px; }
+.t-small { display: flex; gap: 8px; flex-wrap: wrap; padding: 4px 14px 14px; }
+.t-small .btn { flex: 1 1 140px; }
+.pay { margin-top: 4px; padding: 10px 14px 14px; border-top: 2px dashed var(--chrome); }
+.pay .note { padding: 0 0 8px; }
+.pay-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.pay-actions .btn { flex: 1 1 140px; }
+.payqr { display: block; width: min(100%, 320px); margin: 12px auto 0; border-radius: 12px; border: 1px solid var(--chrome); background: #fff; }
+.ver-row { text-align: center; margin: 0; }
+.install { min-height: 42px; padding: 0 18px; border: 1.5px solid var(--chrome); border-radius: 999px; background: #fff; font-weight: 700; cursor: pointer; color: var(--ink); }
+
+/* barber */
+.stat .money { display: block; margin-top: -2px; font-size: 15px; font-weight: 700; color: var(--green); }
+.push-banner { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin: 0 10px 10px; padding: 10px 12px; background: var(--blue-bg); border-radius: 12px; font-size: 15px; line-height: 1.35; }
+.push-banner span { flex: 1; }
+.hist-chip { display: inline-block; margin: 2px 0 2px 6px; padding: 0 10px; border-radius: 999px; background: var(--green-bg); color: var(--green); font-size: 13px; font-weight: 700; line-height: 1.6; }
+.chair .hist-chip { background: rgba(143, 232, 180, .2); color: #8ee8b4; }
+.toast-action { align-self: start; margin-top: 8px; min-height: 38px; padding: 0 16px; border: 0; border-radius: 999px; background: #fff; color: var(--ink); font-weight: 700; cursor: pointer; }
+.field.two { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.field input[type="time"] { width: 100%; }
+.hint.small { font-size: 13px; margin: 0 0 12px; }
+.svc-head, .svc-row { display: grid; grid-template-columns: minmax(0, 1fr) 64px 72px 36px; gap: 6px; align-items: center; }
+.svc-head { margin-bottom: 4px; }
+.svc-head span { font-size: 13px; font-weight: 700; color: var(--steel); }
+.svc-row { margin-bottom: 8px; }
+.svc-row input { width: 100%; min-width: 0; min-height: 46px; padding: 0 10px; border: 1.5px solid var(--chrome); border-radius: 10px; background: #f8fafc; font-size: 16px; }
+.svc-row input:focus { border-color: var(--blue); outline: none; background: #fff; }
+.s-del { width: 36px; height: 36px; border: 0; border-radius: 50%; background: var(--rose-bg); color: var(--red-dark); font-size: 20px; line-height: 1; cursor: pointer; }
+.pay-preview img { display: block; width: 100%; max-height: 320px; margin: 8px auto 12px; object-fit: contain; border: 1px solid var(--chrome); border-radius: 12px; background: #fff; }
+.help-steps { padding-left: 18px; line-height: 1.9; }
+.help-steps li { margin-bottom: 14px; }
+
+/* ============================ v15: call button in the header, details card as first slide ============================ */
+.shop-head h1 { display: flex; align-items: center; gap: 8px; min-width: 0; }
+.shop-head h1 #shopName { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.closed-tag { flex: none; font-style: normal; font-family: var(--font-body); font-size: 12px; font-weight: 700; line-height: 1.7; padding: 0 9px; border-radius: 999px; background: var(--red); color: #fff; }
+.shop-head .shop-login { display: inline-flex; align-items: center; gap: 5px; min-height: 30px; margin-top: -5px; padding: 0 4px; border-radius: 0; background: none; color: #cfd8e6; font-size: 13px; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+.shop-call { flex: none; display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 0 14px; border-radius: 14px; background: var(--red); color: #fff; text-decoration: none; font-family: var(--font-num); font-weight: 700; font-size: 22px; letter-spacing: .03em; box-shadow: inset 0 -3px 0 rgba(0,0,0,.2); }
+.shop-call:active { transform: scale(.97); }
+.info-slide { position: relative; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 3px; padding: 10px 16px 34px 30px; background: radial-gradient(circle at 88% 0, #28446f 0, var(--ink) 62%); color: #fff; overflow: hidden; }
+.info-slide::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 10px; background: repeating-linear-gradient(-45deg, var(--red) 0 8px, #fff 8px 16px, var(--blue) 16px 24px, #fff 24px 32px); }
+.info-slide .who { width: 100%; padding-right: 96px; }
+.info-slide .contact-name { font-size: 28px; line-height: 1.3; }
+.info-clock { position: absolute; top: 10px; right: 12px; display: inline-flex; align-items: center; gap: 5px; padding: 2px 10px; border-radius: 999px; background: rgba(255,255,255,.12); color: var(--brass-light); font-size: 13px; font-weight: 700; }
+.map-pill { display: inline-flex; align-items: center; gap: 6px; max-width: 100%; min-height: 36px; padding: 0 12px 0 10px; border-radius: 999px; background: rgba(255,255,255,.14); color: #fff; font-size: 14px; text-decoration: none; }
+.map-pill svg { flex: none; color: var(--brass-light); }
+.map-pill span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.info-hours { margin: 0; font-size: 13px; font-weight: 600; color: var(--brass-light); }
+.info-slide .who { padding-right: 0; justify-content: flex-start; }
+.info-slide .state { margin-left: 8px; }
+.shop-head .shop-login { min-height: 26px; margin-top: -6px; }
+
   </style>
 </head>
 <body>
@@ -330,20 +389,19 @@ label.btn input { display: none; }
   <header class="shop-head">
     <span class="pole" aria-hidden="true"></span>
     <div class="sh-text">
-      <h1 id="shopName">सलून</h1>
-      <p class="sh-clock" aria-label="सध्याची वेळ">
-        <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path fill="currentColor" d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
-        <span id="clockText"></span>
-      </p>
+      <h1><span id="shopName">सलून</span><em id="closedTag" class="closed-tag" hidden>बंद</em></h1>
+      <a class="shop-login" href="#barber"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg> लॉगिन</a>
     </div>
-    <a class="shop-login" href="#barber">
-      <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
-      लॉगिन
+    <a id="phoneText" class="shop-call" href="#" aria-label="केशकर्तनकारांना फोन करा">
+      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>
+      <span id="phoneNum"></span>
     </a>
   </header>
 
+  <div id="noticeBar" class="notice" role="status" hidden></div>
+
   <div class="hero">
-    <div id="slides" class="slides" tabindex="0" aria-roledescription="carousel" aria-label="दुकानाचे फोटो"></div>
+    <div id="slides" class="slides" tabindex="0" aria-roledescription="carousel" aria-label="दुकानाची माहिती आणि फोटो"></div>
     <div class="hero-shade"></div>
     <div id="dots" class="dots"></div>
   </div>
@@ -360,22 +418,6 @@ label.btn input { display: none; }
   </section>
 
   <main class="app">
-    <section class="card contact" aria-label="केशकर्तनकारांशी संपर्क">
-      <div class="who">
-        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M9.64 7.64c.23-.5.36-1.05.36-1.64 0-2.21-1.79-4-4-4S2 3.79 2 6s1.79 4 4 4c.59 0 1.14-.13 1.64-.36L10 12l-2.36 2.36C7.14 14.13 6.59 14 6 14c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4c0-.59-.13-1.14-.36-1.64L12 14l7 7h3v-1L9.64 7.64zM6 8c-1.1 0-2-.89-2-2s.9-2 2-2 2 .89 2 2-.9 2-2 2zm0 12c-1.1 0-2-.89-2-2s.9-2 2-2 2 .89 2 2-.9 2-2 2zm6-7.5c-.28 0-.5-.22-.5-.5s.22-.5.5-.5.5.22.5.5-.22.5-.5.5zM19 3l-6 6 2 2 7-7V3h-3z"/></svg>
-        <span>केशकर्तनकार</span>
-        <em id="shopState" class="state">दुकान सुरू</em>
-      </div>
-      <div class="contact-main">
-        <p id="barberName" class="contact-name">केशकर्तनकार</p>
-        <p id="address" class="contact-address"></p>
-      </div>
-      <a id="phoneText" class="contact-call" href="#" aria-label="केशकर्तनकारांना फोन करा">
-        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>
-        <span id="phoneNum"></span>
-      </a>
-    </section>
-
     <section id="ticketWrap" class="card ticket" hidden aria-live="polite"></section>
 
     <section id="bookWrap" class="card book" aria-labelledby="bookTitle">
@@ -418,6 +460,7 @@ label.btn input { display: none; }
     </section>
   </main>
 
+  <p class="ver-row"><button id="installBtn" class="install" type="button" hidden>होम स्क्रीनवर ठेवा</button></p>
   <p id="ver" class="ver"></p>
   </template>
 
@@ -441,7 +484,7 @@ label.btn input { display: none; }
         <button id="loginBtn" class="btn btn-primary btn-block" type="submit">साइन इन</button>
       </form>
       <p class="hint" id="demoHint" hidden>डेमो लॉगिन: वापरकर्ता नाव <b>barber</b>, पासवर्ड <b>barber123</b></p>
-      <p class="foot"><a href="./">ग्राहक पानावर परत जा</a></p>
+      <p class="foot"><a id="backLink" href="./">ग्राहक पानावर परत जा</a></p>
     </section>
   </div>
 
@@ -459,14 +502,21 @@ label.btn input { display: none; }
       <div class="stats" aria-label="आजची स्थिती">
         <div class="stat"><b id="sWaiting">0</b><span>प्रतीक्षेत</span></div>
         <div class="stat"><b id="sChair">0</b><span>खुर्चीवर</span></div>
-        <div class="stat"><b id="sDone">0</b><span>आज पूर्ण</span></div>
+        <div class="stat"><b id="sDone">0</b><span>आज पूर्ण</span><span id="sMoney" class="money"></span></div>
+      </div>
+
+      <div id="pushBanner" class="push-banner" hidden>
+        <span>स्क्रीन लॉक असतानाही नवीन नंबरची सूचना हवी?</span>
+        <button id="pushBtn" class="btn btn-dark btn-sm" type="button">चालू करा</button>
       </div>
 
       <div class="toolbar">
         <button id="walkinBtn" class="btn btn-dark" type="button">ग्राहक जोडा</button>
-        <a class="btn btn-ghost" href="./" target="_blank" rel="noopener">ग्राहक पान</a>
+        <a id="custLink" class="btn btn-ghost" href="./" target="_blank" rel="noopener">ग्राहक पान</a>
         <button id="shopBtn" class="btn btn-ghost" type="button">दुकान माहिती</button>
         <button id="photoBtn" class="btn btn-ghost" type="button">स्लायडर फोटो</button>
+        <button id="svcBtn" class="btn btn-ghost" type="button">सेवा व दर</button>
+        <button id="payBtn" class="btn btn-ghost" type="button">पेमेंट QR</button>
       </div>
 
       <section class="card chair" aria-labelledby="chairTitle">
@@ -480,7 +530,8 @@ label.btn input { display: none; }
       </section>
 
       <p class="ver" id="ver"></p>
-      <p class="foot"><button id="logoutBtn" class="btn btn-ghost btn-sm" type="button">लॉग आउट</button>
+      <p class="foot"><button id="helpBtn" class="btn btn-ghost btn-sm" type="button">सेटअप मदत</button>
+        <button id="logoutBtn" class="btn btn-ghost btn-sm" type="button">लॉग आउट</button>
         <button id="resetBtn" class="btn btn-ghost btn-sm" type="button" hidden>डेमो माहिती पुसा</button></p>
     </main>
   </div>
@@ -540,6 +591,50 @@ label.btn input { display: none; }
     <button id="photoClose" class="btn btn-ghost btn-block" type="button" style="margin-top:8px">बंद करा</button>
   </dialog>
 
+  <!-- ---------- services and prices ---------- -->
+  <dialog id="svcDialog" aria-labelledby="svcTitle">
+    <h2 id="svcTitle">सेवा आणि दर</h2>
+    <p class="hint">ग्राहकांना हीच यादी दिसते. "मिनिटे" म्हणजे ही सेवा साधारण किती वेळ घेते (रांगेतील वेळ मोजण्यासाठी).</p>
+    <div id="svcRows" class="svc-rows"></div>
+    <button id="svcAdd" class="btn btn-ghost btn-block" type="button">+ नवीन सेवा जोडा</button>
+    <p id="svcError" class="form-error" role="alert" hidden></p>
+    <div class="b-actions" style="margin-top:12px">
+      <button id="svcCancel" class="btn btn-ghost" type="button">रद्द करा</button>
+      <button id="svcSave" class="btn btn-primary" type="button">जतन करा</button>
+    </div>
+  </dialog>
+
+  <!-- ---------- payment QR ---------- -->
+  <dialog id="payDialog" aria-labelledby="payTitle">
+    <h2 id="payTitle">पेमेंट QR</h2>
+    <p class="hint">तुमचा GPay / PhonePe / Paytm चा QR फोटो इथे ठेवा. ग्राहक स्कॅन करून पैसे देतील.</p>
+    <div id="payPreview" class="pay-preview"></div>
+    <label class="btn btn-dark btn-block" id="payPickLabel"><span>QR फोटो निवडा</span><input id="payInput" type="file" accept="image/*"></label>
+    <button id="payRemove" class="btn btn-ghost btn-block" type="button" style="margin-top:8px" hidden>हा QR काढा</button>
+    <div class="field" style="margin-top:14px">
+      <label for="payUpi">UPI आयडी (पर्यायी)</label>
+      <input id="payUpi" type="text" maxlength="60" autocomplete="off" autocapitalize="none" placeholder="जसे: 9623112334@okbizaxis">
+      <p class="hint small">हा भरला तर ग्राहकाला "UPI ने पैसे द्या" बटन दिसते, आणि रक्कम आपोआप भरली जाते.</p>
+    </div>
+    <p id="payMsg" class="mic-status" aria-live="polite" hidden></p>
+    <div class="b-actions">
+      <button id="payClose" class="btn btn-ghost" type="button">बंद करा</button>
+      <button id="paySave" class="btn btn-primary" type="button">जतन करा</button>
+    </div>
+  </dialog>
+
+  <!-- ---------- one-time setup help ---------- -->
+  <dialog id="helpDialog" aria-labelledby="helpTitle">
+    <h2 id="helpTitle">सेटअप मदत</h2>
+    <p class="hint">नवीन सोयी (दर, कमाई, पेमेंट QR, सूचना, फोनवर सूचना) चालू करण्यासाठी हे एकदा करा. कॉपी करून Supabase मध्ये पेस्ट करायचे आहे.</p>
+    <ol class="help-steps">
+      <li><b>SQL:</b> <button id="copySql" class="btn btn-dark btn-sm" type="button">SQL कॉपी करा</button><br>Supabase, SQL Editor, New query, पेस्ट करा, Run दाबा.</li>
+      <li><b>सूचना कोड:</b> <button id="copyFn" class="btn btn-dark btn-sm" type="button">कोड कॉपी करा</button><br>Supabase, Edge Functions, push, Code, जुना कोड काढून हा पेस्ट करा, Deploy updates दाबा. (Verify JWT बंदच ठेवा.)</li>
+    </ol>
+    <p id="helpMsg" class="mic-status" aria-live="polite" hidden></p>
+    <button id="helpClose" class="btn btn-ghost btn-block" type="button">बंद करा</button>
+  </dialog>
+
   <!-- ---------- shop details ---------- -->
   <dialog id="shopDialog" aria-labelledby="shopTitle">
     <h2 id="shopTitle">दुकानाची माहिती</h2>
@@ -577,6 +672,15 @@ label.btn input { display: none; }
         </div>
         <p id="sAddressSt" class="mic-status" aria-live="polite" hidden></p>
       </div>
+      <div class="field">
+        <label for="sNotice">आजची सूचना (ग्राहकांना वर दिसते)</label>
+        <input id="sNotice" type="text" maxlength="120" autocomplete="off" placeholder="जसे: आज 1 वाजता बंद">
+      </div>
+      <div class="field two">
+        <div><label for="sOpen">उघडण्याची वेळ</label><input id="sOpen" type="time"></div>
+        <div><label for="sClose">बंद होण्याची वेळ</label><input id="sClose" type="time"></div>
+      </div>
+      <p class="hint small">वेळा भरल्या तर दुकान त्या वेळेतच सुरू दिसेल. रिकाम्या ठेवल्या तर फक्त वरचे "दुकान सुरू/बंद" बटन चालते.</p>
       <p id="shopError" class="form-error" role="alert" hidden></p>
       <div class="b-actions">
         <button id="shopCancel" class="btn btn-ghost" type="button">रद्द करा</button>
@@ -610,7 +714,7 @@ label.btn input { display: none; }
 //  browser only, nothing is shared between phones).
 // ---------------------------------------------------------------
 const CONFIG = {
-  VERSION: '11', // shown at the bottom of the pages, so you can tell which file is running
+  VERSION: '15', // shown at the bottom of the pages, so you can tell which file is running
   // Supabase: Project Settings > API
   SUPABASE_URL: 'https://qignpnpuuowsuxyqxgel.supabase.co',
   SUPABASE_ANON_KEY: 'sb_publishable_AqLowFoKA_aw4U8vdEGAZg_KoBfm27a',
@@ -631,15 +735,15 @@ const CONFIG = {
   // Language used by the microphone button (Marathi, India)
   SPEECH_LANG: 'mr-IN',
 
-  // Services shown in the dropdown. "minutes" is only a suggestion shown to the barber
-  // when he starts the timer (he can still pick 10, 20, 30, 40, 50 or 60).
+  // Starting list of services. The barber can change names, minutes and prices in the app
+  // ("सेवा व दर" button), so you normally never edit this. "minutes" is how long it usually takes.
   SERVICES: [
-    { name: 'कटिंग', minutes: 20 },
-    { name: 'शेव्हिंग (दाढी)', minutes: 10 },
-    { name: 'कटिंग + दाढी', minutes: 30 },
-    { name: 'मसाज', minutes: 20 },
-    { name: 'हेअर कलर', minutes: 40 },
-    { name: 'फेशियल', minutes: 30 },
+    { name: 'कटिंग', minutes: 20, price: 100 },
+    { name: 'शेव्हिंग (दाढी)', minutes: 10, price: 50 },
+    { name: 'कटिंग + दाढी', minutes: 30, price: 140 },
+    { name: 'मसाज', minutes: 20, price: 100 },
+    { name: 'हेअर कलर', minutes: 40, price: 300 },
+    { name: 'फेशियल', minutes: 30, price: 200 },
   ],
 
   // Shown in DEMO mode. With Supabase these come from the shop_settings table
@@ -751,8 +855,8 @@ function vibrate(pattern = [200, 100, 200]) {
   }
 }
 
-// ---- toast ----
-function toast(message, { type = 'info', ms = 4500, title = '' } = {}) {
+// ---- toast ----  (action: { label, onClick } adds a button, e.g. "undo")
+function toast(message, { type = 'info', ms = 4500, title = '', action = null } = {}) {
   let host = document.getElementById('toasts');
   if (!host) {
     host = document.createElement('div');
@@ -765,9 +869,22 @@ function toast(message, { type = 'info', ms = 4500, title = '' } = {}) {
   el.className = `toast toast-${type}`;
   if (type === 'alert' || type === 'error') el.setAttribute('role', 'alert');
   el.innerHTML = (title ? `<strong>${esc(title)}</strong>` : '') + `<span>${esc(message)}</span>`;
+  if (action) {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'toast-action';
+    b.textContent = action.label;
+    b.addEventListener('click', () => { el.remove(); action.onClick(); });
+    el.appendChild(b);
+  }
   host.appendChild(el);
   setTimeout(() => el.classList.add('out'), ms);
   setTimeout(() => el.remove(), ms + 400);
+}
+
+// gives up waiting after some time, so a screen never hangs on something that will not happen
+function withTimeout(promise, ms, message) {
+  return Promise.race([promise, new Promise((_, reject) => setTimeout(() => reject(new Error(message)), ms))]);
 }
 
 function urlB64ToUint8Array(base64String) {
@@ -878,9 +995,58 @@ function attachMic(input, button, statusEl, lang = 'mr-IN', kind = 'name') {
   });
 }
 
-// fills a <select> from CONFIG.SERVICES
+// fills a <select> with the services; shows the price and keeps whatever was chosen
 function fillServices(select, services) {
-  select.innerHTML = '<option value="" disabled selected>सेवा निवडा</option>' + services.map((s) => `<option value="${esc(s.name)}">${esc(s.name)}</option>`).join('');
+  const keep = select.value;
+  select.innerHTML = '<option value="" disabled selected>सेवा निवडा</option>' +
+    services.map((s) => `<option value="${esc(s.name)}">${esc(s.name)}${s.price ? ` (₹${s.price})` : ''}</option>`).join('');
+  if (keep && services.some((s) => s.name === keep)) select.value = keep;
+}
+
+// ---- services, prices and opening hours ----
+// The barber edits the list in the app (saved in the database as JSON); CONFIG.SERVICES is the fallback.
+function getServices(shop, fallback = []) {
+  try {
+    const list = JSON.parse((shop && shop.services) || 'null');
+    if (Array.isArray(list) && list.length) {
+      return list
+        .map((s) => ({ name: String(s.name || '').trim(), minutes: Number(s.minutes) || 20, price: Number(s.price) || 0 }))
+        .filter((s) => s.name);
+    }
+  } catch { /* use the fallback */ }
+  return fallback;
+}
+
+const priceOf = (services, name) => ((services || []).find((s) => s.name === name) || {}).price || 0;
+
+function parseHM(v) {
+  const m = /^(\d{1,2}):(\d{2})/.exec(String(v || ''));
+  if (!m) return null;
+  const h = Number(m[1]);
+  const mi = Number(m[2]);
+  return h > 23 || mi > 59 ? null : h * 60 + mi;
+}
+
+function fmtHM(v) {
+  const t = parseHM(v);
+  if (t === null) return '';
+  const d = new Date();
+  d.setHours(Math.floor(t / 60), t % 60, 0, 0);
+  return fmtTime(d);
+}
+
+// open or closed, and the sentence to show a customer when it is closed
+function shopStatus(shop, now = new Date()) {
+  const closed = (note) => ({ open: false, label: 'दुकान बंद', note });
+  if (!shop || !shop.is_open) return closed('दुकान सध्या बंद आहे. कृपया नंतर प्रयत्न करा किंवा फोन करा.');
+  const o = parseHM(shop.open_time);
+  const c = parseHM(shop.close_time);
+  if (o !== null && c !== null && o !== c) {
+    const m = now.getHours() * 60 + now.getMinutes();
+    const inside = o < c ? m >= o && m < c : m >= o || m < c;
+    if (!inside) return closed(`दुकान सध्या बंद आहे. ${m < o ? '' : 'उद्या '}${fmtHM(shop.open_time)} ला उघडेल.`);
+  }
+  return { open: true, label: 'दुकान सुरू', note: '' };
 }
 
 // Shrinks a phone photo (often 4000px, 5 MB) to about 100 KB so it loads fast and fits in the free database.
@@ -922,7 +1088,7 @@ function endMs(row) {
  * - "Next" is the first accepted customer, once the chair is free or the
  *   current customer has nextAlertMin minutes (or less) left.
  */
-function buildQueue(rows, now, avgMin = 20, nextAlertMin = 5) {
+function buildQueue(rows, now, avgMin = 20, nextAlertMin = 5, minutesFor = null) {
   const active = rows.filter((r) => ACTIVE.includes(r.status));
   active.sort((a, b) => {
     const ai = a.status === 'in_progress' ? 0 : 1;
@@ -931,21 +1097,24 @@ function buildQueue(rows, now, avgMin = 20, nextAlertMin = 5) {
     if (a.queue_position !== b.queue_position) return a.queue_position - b.queue_position;
     return new Date(a.created_at) - new Date(b.created_at);
   });
+  // how long this person will probably take: his service's time, else the shop average
+  const minsOf = (r) => (minutesFor && minutesFor(r)) || avgMin;
 
   const currentRow = active.find((r) => r.status === 'in_progress') || null;
   const leftMs = currentRow ? endMs(currentRow) - now : 0;
   const currentWaitMin = currentRow ? Math.max(0, Math.ceil(leftMs / 60000)) : 0;
 
-  let waitingAhead = 0;
+  let waitSum = 0; // minutes of everybody who is waiting ahead of the next person in the loop
   const list = active.map((r, i) => {
-    const item = { ...r, index: i, ahead: i, waitMin: 0, isNext: false, leftMs: 0, progress: 0 };
+    const item = { ...r, index: i, ahead: i, waitMin: 0, etaMs: now, isNext: false, leftMs: 0, progress: 0 };
     if (r.status === 'in_progress') {
       item.leftMs = leftMs;
       const total = (r.duration_minutes || 1) * 60000;
       item.progress = Math.min(1, Math.max(0, 1 - leftMs / total));
     } else {
-      item.waitMin = currentWaitMin + waitingAhead * avgMin;
-      waitingAhead += 1;
+      item.waitMin = currentWaitMin + waitSum;
+      item.etaMs = now + item.waitMin * 60000;
+      waitSum += minsOf(r);
     }
     return item;
   });
@@ -957,12 +1126,16 @@ function buildQueue(rows, now, avgMin = 20, nextAlertMin = 5) {
     list,
     current: list.find((r) => r.status === 'in_progress') || null,
     waiting: list.filter((r) => r.status !== 'in_progress'),
+    waitForNew: currentWaitMin + waitSum, // minutes a person who books right now would wait
   };
 }
 
+const SETUP_SQL = "-- =====================================================================\n--  Barber queue: Supabase tables (simple version)\n--  Run this whole file once in: Supabase dashboard > SQL Editor > New query > Run.\n--  Safe to run again later; it never deletes your bookings.\n--\n--  Note: the tables are open to the site's public key (no extra security),\n--  which is fine for a small shop but means anyone who inspects the site\n--  could read or change the data.\n-- =====================================================================\n\ncreate table if not exists public.shop_settings (\n  id           int primary key default 1 check (id = 1),\n  shop_name    text    not null default 'महाले',\n  barber_name  text    not null default 'दत्तात्रय महाले',\n  phone        text    not null default '9623112334',\n  address      text    not null default 'फुले कॉलनी समोर',\n  is_open      boolean not null default true,\n  avg_minutes  int     not null default 20\n);\n-- newer settings (safe to run again; an older install simply gets the new columns)\nalter table public.shop_settings add column if not exists services   text;                       -- list of services, minutes and prices (JSON)\nalter table public.shop_settings add column if not exists notice     text    not null default ''; -- line shown at the top for customers\nalter table public.shop_settings add column if not exists upi_id     text    not null default ''; -- for the \"pay with UPI\" button\nalter table public.shop_settings add column if not exists pay_qr     text    not null default ''; -- payment QR picture\nalter table public.shop_settings add column if not exists has_qr     boolean not null default false;\nalter table public.shop_settings add column if not exists open_time  text    not null default ''; -- like 09:00\nalter table public.shop_settings add column if not exists close_time text    not null default ''; -- like 21:00\ninsert into public.shop_settings (id) values (1) on conflict (id) do nothing;\n\ncreate table if not exists public.bookings (\n  id               uuid primary key default gen_random_uuid(),\n  name             text not null,\n  phone            text not null,\n  service          text not null default '',\n  status           text not null default 'pending'\n                   check (status in ('pending','accepted','in_progress','completed','cancelled','rejected')),\n  is_walk_in       boolean not null default false,\n  queue_position   bigint generated by default as identity,\n  duration_minutes int,\n  started_at       timestamptz,\n  notified_next    boolean not null default false,\n  created_at       timestamptz not null default now(),\n  updated_at       timestamptz not null default now()\n);\nalter table public.bookings add column if not exists price int not null default 0;                         -- amount for the day's earnings\nalter table public.bookings add column if not exists barber_notified boolean not null default false;      -- barber's phone was alerted\ncreate index if not exists bookings_status_pos_idx on public.bookings (status, queue_position);\ncreate index if not exists bookings_phone_idx on public.bookings (phone);\n\ncreate table if not exists public.push_subscriptions (\n  id         uuid primary key default gen_random_uuid(),\n  booking_id uuid not null references public.bookings(id) on delete cascade,\n  endpoint   text not null unique,\n  p256dh     text not null,\n  auth       text not null,\n  created_at timestamptz not null default now()\n);\n\n-- the barber's own phone (so it rings when a customer books)\ncreate table if not exists public.barber_push (\n  id         uuid primary key default gen_random_uuid(),\n  endpoint   text not null unique,\n  p256dh     text not null,\n  auth       text not null,\n  created_at timestamptz not null default now()\n);\n\n-- photos for the slider, added by the barber (compressed pictures stored as text)\ncreate table if not exists public.slider_photos (\n  id         uuid primary key default gen_random_uuid(),\n  image      text not null,\n  sort       bigint generated by default as identity,\n  created_at timestamptz not null default now()\n);\n\n-- open access for the public (anon) key\nalter table public.shop_settings      enable row level security;\nalter table public.bookings           enable row level security;\nalter table public.push_subscriptions enable row level security;\nalter table public.slider_photos      enable row level security;\nalter table public.barber_push        enable row level security;\n\ndrop policy if exists \"open shop\"          on public.shop_settings;\ndrop policy if exists \"open bookings\"      on public.bookings;\ndrop policy if exists \"open subscriptions\" on public.push_subscriptions;\ndrop policy if exists \"open photos\"        on public.slider_photos;\ndrop policy if exists \"open barber push\"   on public.barber_push;\ncreate policy \"open shop\"          on public.shop_settings      for all using (true) with check (true);\ncreate policy \"open bookings\"      on public.bookings           for all using (true) with check (true);\ncreate policy \"open subscriptions\" on public.push_subscriptions for all using (true) with check (true);\ncreate policy \"open photos\"        on public.slider_photos      for all using (true) with check (true);\ncreate policy \"open barber push\"   on public.barber_push        for all using (true) with check (true);\n\ngrant select, insert, update, delete on public.shop_settings, public.bookings, public.push_subscriptions, public.slider_photos, public.barber_push to anon, authenticated;\ngrant usage, select on all sequences in schema public to anon, authenticated;\n\n-- live updates\ndo $$ begin alter publication supabase_realtime add table public.bookings;      exception when duplicate_object then null; end $$;\ndo $$ begin alter publication supabase_realtime add table public.shop_settings; exception when duplicate_object then null; end $$;\n\n-- =====================================================================\n--  OPTIONAL: every-minute timer for \"you're next\" push alerts\n--  1. Dashboard > Database > Extensions: enable  pg_cron  and  pg_net\n--  2. Deploy the Edge Function (see README) and set the CRON_SECRET secret\n--  3. Replace YOUR-PROJECT-REF and YOUR-CRON-SECRET, remove the leading \"--\" and run.\n-- =====================================================================\n-- select cron.schedule(\n--   'barber-queue-tick',\n--   '* * * * *',\n--   $$ select net.http_post(\n--        url     := 'https://YOUR-PROJECT-REF.supabase.co/functions/v1/push',\n--        headers := jsonb_build_object('Content-Type', 'application/json', 'x-cron-secret', 'YOUR-CRON-SECRET'),\n--        body    := '{\"event\":\"tick\"}'::jsonb\n--      ); $$\n-- );\n";
+const SETUP_FN = "// Supabase Edge Function: sends Web Push notifications to customers.\n//\n// Who may call it\n//   * the barber's page (sends PUSH_KEY from js/config.js, which must equal the BARBER_KEY secret), or\n//   * the every-minute cron job (sends the x-cron-secret header), or\n//   * anybody, but ONLY for the \"new_booking\" event: it alerts the barber's phone once for a real, fresh\n//     booking and does nothing else.\n//\n// Deploy with JWT checks off, because we do our own checks above:\n//   supabase functions deploy push --no-verify-jwt\n//\n// Secrets (supabase secrets set ...):\n//   VAPID_PUBLIC_KEY, VAPID_PRIVATE_KEY, VAPID_SUBJECT (mailto:you@example.com), CRON_SECRET, BARBER_KEY, DB_KEY\n// SUPABASE_URL is provided automatically.\n\nimport { createClient } from \"npm:@supabase/supabase-js@2\";\nimport webpush from \"npm:web-push@3.6.7\";\n\n// DB_KEY = your publishable key (the same one as in index.html). The tables are open to it,\n// so no secret database key is needed. Older projects can leave DB_KEY out.\nconst db = createClient(\n  Deno.env.get(\"SUPABASE_URL\")!,\n  Deno.env.get(\"DB_KEY\") ?? Deno.env.get(\"SUPABASE_SERVICE_ROLE_KEY\")!,\n  { auth: { persistSession: false } },\n);\n\nwebpush.setVapidDetails(\n  Deno.env.get(\"VAPID_SUBJECT\") ?? \"mailto:owner@example.com\",\n  Deno.env.get(\"VAPID_PUBLIC_KEY\")!,\n  Deno.env.get(\"VAPID_PRIVATE_KEY\")!,\n);\n\nconst CRON_SECRET = Deno.env.get(\"CRON_SECRET\") ?? \"\";\nconst NEXT_ALERT_MINUTES = Number(Deno.env.get(\"NEXT_ALERT_MINUTES\") ?? \"5\");\n\nconst cors = {\n  \"Access-Control-Allow-Origin\": \"*\",\n  \"Access-Control-Allow-Headers\": \"authorization, x-client-info, apikey, content-type, x-cron-secret\",\n  \"Access-Control-Allow-Methods\": \"POST, OPTIONS\",\n};\n\nconst reply = (body: unknown, status = 200) =>\n  new Response(JSON.stringify(body), { status, headers: { ...cors, \"Content-Type\": \"application/json\" } });\n\ntype Payload = { title: string; body: string; tag?: string };\n\nconst MESSAGES: Record\u003cstring, Payload> = {\n  accepted: { title: \"नंबर स्वीकारला\", body: \"तुम्ही रांगेत आहात. तुमचा नंबर जवळ आला की कळवू.\", tag: \"queue\" },\n  rejected: { title: \"विनंती नाकारली\", body: \"केशकर्तनकार ही विनंती घेऊ शकले नाहीत. कृपया फोन करा.\", tag: \"queue\" },\n  started: { title: \"तुमची पाळी आली\", body: \"कृपया खुर्चीवर बसा.\", tag: \"queue\" },\n  cancelled: { title: \"नंबर रद्द झाला\", body: \"तुमचा नंबर रद्द करण्यात आला.\", tag: \"queue\" },\n};\n\nasync function isAuthorised(req: Request, body: Record\u003cstring, unknown>): Promise\u003cboolean> {\n  const secret = req.headers.get(\"x-cron-secret\");\n  if (CRON_SECRET && secret === CRON_SECRET) return true;\n  // the barber's page sends PUSH_KEY from js/config.js; it must equal the BARBER_KEY secret\n  const key = Deno.env.get(\"BARBER_KEY\") ?? \"\";\n  return key.length > 0 && body.token === key;\n}\n\n// sends one notification; a phone that has gone away (404 / 410) is removed from its table\nasync function pushOne(\n  sub: { id: string; endpoint: string; p256dh: string; auth: string },\n  payload: Payload & { url?: string },\n  table: string,\n): Promise\u003cboolean> {\n  try {\n    await webpush.sendNotification(\n      { endpoint: sub.endpoint, keys: { p256dh: sub.p256dh, auth: sub.auth } },\n      JSON.stringify({ url: \"./\", ...payload }),\n      { TTL: 600, urgency: \"high\" },\n    );\n    return true;\n  } catch (e) {\n    const code = (e as { statusCode?: number }).statusCode;\n    if (code === 404 || code === 410) {\n      await db.from(table).delete().eq(\"id\", sub.id); // customer revoked or expired\n    } else {\n      console.error(\"push failed\", code, (e as Error).message);\n    }\n    return false;\n  }\n}\n\nasync function sendToBooking(bookingId: string, payload: Payload): Promise\u003cnumber> {\n  const { data: subs } = await db.from(\"push_subscriptions\").select(\"*\").eq(\"booking_id\", bookingId);\n  let sent = 0;\n  for (const s of subs ?? []) if (await pushOne(s, payload, \"push_subscriptions\")) sent++;\n  return sent;\n}\n\nasync function sendToBarber(payload: Payload & { url?: string }): Promise\u003cnumber> {\n  const { data: subs } = await db.from(\"barber_push\").select(\"*\");\n  let sent = 0;\n  for (const s of subs ?? []) if (await pushOne(s, payload, \"barber_push\")) sent++;\n  return sent;\n}\n\n// A customer has just booked: ring the barber's phone, once per booking.\nasync function notifyBarber(bookingId: string | null): Promise\u003c{ event: string; sent: number }> {\n  const none = { event: \"new_booking\", sent: 0 };\n  if (!bookingId) return none;\n  const { data: b } = await db.from(\"bookings\").select(\"*\").eq(\"id\", bookingId).maybeSingle();\n  if (!b || b.is_walk_in || b.barber_notified === true) return none;\n  if (Date.now() - new Date(b.created_at).getTime() > 5 * 60000) return none; // only for a fresh booking\n  const { data: claimed } = await db\n    .from(\"bookings\")\n    .update({ barber_notified: true })\n    .eq(\"id\", bookingId)\n    .eq(\"barber_notified\", false)\n    .select(\"id\");\n  if (!claimed || claimed.length === 0) return none; // already done, or the column does not exist yet\n  const sent = await sendToBarber({\n    title: \"नवीन नंबर लागला\",\n    body: b.service ? `${b.name} (${b.service})` : b.name,\n    tag: \"new-booking\",\n    url: \"./#barber\",\n  });\n  return { event: \"new_booking\", sent };\n}\n\n// Tells the first accepted customer \"you're next\" exactly once:\n//  - when nobody is in the chair, or\n//  - when the current customer has NEXT_ALERT_MINUTES (or less) left.\nasync function runCheck(): Promise\u003c{ notified: string | null }> {\n  const { data: current } = await db.from(\"bookings\").select(\"*\").eq(\"status\", \"in_progress\").maybeSingle();\n\n  let minutesLeft = 0;\n  if (current?.started_at) {\n    const end = new Date(current.started_at).getTime() + (current.duration_minutes ?? 0) * 60000;\n    minutesLeft = Math.ceil((end - Date.now()) / 60000);\n    if (minutesLeft > NEXT_ALERT_MINUTES) return { notified: null };\n  }\n\n  const { data: next } = await db\n    .from(\"bookings\")\n    .select(\"*\")\n    .eq(\"status\", \"accepted\")\n    .order(\"queue_position\", { ascending: true })\n    .limit(1)\n    .maybeSingle();\n\n  if (!next || next.notified_next) return { notified: null };\n\n  // Mark first so a second overlapping run cannot send twice.\n  const { data: claimed } = await db\n    .from(\"bookings\")\n    .update({ notified_next: true })\n    .eq(\"id\", next.id)\n    .eq(\"notified_next\", false)\n    .select(\"id\");\n  if (!claimed || claimed.length === 0) return { notified: null };\n\n  const body = current\n    ? `तुमचा नंबर जवळ आला आहे (सुमारे ${Math.max(minutesLeft, 1)} मिनिटे). कृपया आता दुकानात या.`\n    : \"खुर्ची रिकामी आहे. कृपया आता दुकानात या.\";\n  await sendToBooking(next.id, { title: \"तुम्ही पुढचे आहात\", body, tag: \"queue\" });\n  return { notified: next.id };\n}\n\nDeno.serve(async (req) => {\n  if (req.method === \"OPTIONS\") return new Response(\"ok\", { headers: cors });\n  if (req.method !== \"POST\") return reply({ error: \"POST only\" }, 405);\n\n  let body: Record\u003cstring, unknown> = {};\n  try {\n    body = await req.json();\n  } catch {\n    return reply({ error: \"Invalid JSON\" }, 400);\n  }\n\n  const event = String(body.event ?? \"\");\n  const bookingId = typeof body.booking_id === \"string\" ? body.booking_id : null;\n\n  if (event === \"new_booking\") return reply(await notifyBarber(bookingId)); // open to the public, see above\n\n  if (!(await isAuthorised(req, body))) return reply({ error: \"unauthorized\" }, 401);\n\n  const result: Record\u003cstring, unknown> = { event };\n\n  if (event in MESSAGES && bookingId) {\n    result.sent = await sendToBooking(bookingId, MESSAGES[event]);\n  }\n  // After anything that changes who is in the chair, or on the timer, see if someone is now \"next\".\n  if ([\"started\", \"cancelled\", \"check\", \"tick\"].includes(event)) {\n    Object.assign(result, await runCheck());\n  }\n\n  return reply(result);\n});\n";
+
 const demoBackend = (() => {
 // DEMO backend: everything lives in this browser's localStorage.
-// It mirrors the rules in supabase/schema.sql so you can try the whole flow
+// It mirrors the rules of backend-supabase.js so you can try the whole flow
 // (customer + barber in two tabs) before connecting a real database.
 
 const KEY = 'bq_demo_db_v2';
@@ -973,17 +1146,23 @@ const uid = () => (crypto.randomUUID ? crypto.randomUUID() : String(Date.now()) 
 function seed() {
   const now = Date.now();
   const mk = (name, phone, status, pos, extra = {}) => ({
-    id: uid(), name, phone, service: '', status, is_walk_in: false, queue_position: pos,
-    duration_minutes: null, started_at: null, notified_next: false, client_token: uid(),
+    id: uid(), name, phone, service: '', price: 0, status, is_walk_in: false, queue_position: pos,
+    duration_minutes: null, started_at: null, notified_next: false,
     created_at: new Date(now - (10 - pos) * 60000).toISOString(),
     updated_at: new Date(now).toISOString(), ...extra,
+  });
+  const old = (name, phone, service, price, daysAgo) => mk(name, phone, 'completed', 0, {
+    service, price, created_at: new Date(now - daysAgo * 86400000).toISOString(), updated_at: new Date(now - daysAgo * 86400000).toISOString(),
   });
   return {
     is_open: CONFIG.SHOP.is_open,
     bookings: [
-      mk('अमित जाधव', '9811100001', 'in_progress', 1, { service: 'कटिंग', duration_minutes: 30, started_at: new Date(now - 8 * 60000).toISOString() }),
-      mk('विक्रम पवार', '9811100002', 'accepted', 2, { service: 'कटिंग + दाढी' }),
-      mk('संदीप शिंदे', '9811100003', 'accepted', 3, { service: 'मसाज' }),
+      mk('अमित जाधव', '9811100001', 'in_progress', 1, { service: 'कटिंग', price: 100, duration_minutes: 30, started_at: new Date(now - 8 * 60000).toISOString() }),
+      mk('विक्रम पवार', '9811100002', 'accepted', 2, { service: 'कटिंग + दाढी', price: 140 }),
+      mk('संदीप शिंदे', '9811100003', 'accepted', 3, { service: 'मसाज', price: 100 }),
+      // earlier visits, so the "regular customer" label can be seen in the demo
+      old('विक्रम पवार', '9811100002', 'कटिंग', 100, 9),
+      old('विक्रम पवार', '9811100002', 'कटिंग + दाढी', 140, 24),
     ],
   };
 }
@@ -1015,6 +1194,8 @@ function requireBarber(token) {
   if (!token || !String(token).startsWith('demo-')) throw fail('पुन्हा साइन इन करा', { unauthorized: true });
 }
 
+const shopOf = (db) => ({ ...CONFIG.SHOP, ...(db.shop || {}), is_open: db.is_open });
+
 function checkPerson(name, phone, service) {
   const sv = String(service || '').trim();
   if (sv.length < 2 || sv.length > 40) throw fail('कृपया सेवा निवडा');
@@ -1026,17 +1207,17 @@ function checkPerson(name, phone, service) {
 }
 
 const toPublic = (b) => ({
-  id: b.id, name: b.name, phone_masked: maskPhone(b.phone), status: b.status, is_walk_in: b.is_walk_in,
+  id: b.id, name: b.name, phone_masked: maskPhone(b.phone), service: b.service, status: b.status, is_walk_in: b.is_walk_in,
   queue_position: b.queue_position, duration_minutes: b.duration_minutes, started_at: b.started_at, created_at: b.created_at,
 });
 
 const nextPos = (db) => db.bookings.reduce((m, b) => Math.max(m, b.queue_position), 0) + 1;
 
-function insert(db, n, p, sv, status, walkIn) {
+function insert(db, n, p, sv, status, walkIn, price) {
   if (db.bookings.some((b) => b.phone === p && ACTIVE.includes(b.status))) throw fail('या नंबरवर आधीच एक नोंद सुरू आहे');
   const row = {
-    id: uid(), name: n, phone: p, service: sv, status, is_walk_in: walkIn, queue_position: nextPos(db),
-    duration_minutes: null, started_at: null, notified_next: false, client_token: uid(),
+    id: uid(), name: n, phone: p, service: sv, price, status, is_walk_in: walkIn, queue_position: nextPos(db),
+    duration_minutes: null, started_at: null, notified_next: false,
     created_at: new Date().toISOString(), updated_at: new Date().toISOString(),
   };
   db.bookings.push(row);
@@ -1045,23 +1226,54 @@ function insert(db, n, p, sv, status, walkIn) {
 
 const api = {
   async getShop() {
-    const db = load();
-    return { ...CONFIG.SHOP, ...(db.shop || {}), is_open: db.is_open };
+    const { pay_qr, ...rest } = shopOf(load());
+    return { ...rest, has_qr: !!pay_qr };
+  },
+
+  async getPayQr() {
+    return (load().shop || {}).pay_qr || '';
   },
 
   async getQueue() {
     const dayAgo = Date.now() - 86400000;
-    return load().bookings.filter((b) => new Date(b.created_at).getTime() > dayAgo).map(toPublic);
+    return load().bookings.filter((b) => new Date(b.created_at).getTime() > dayAgo && b.queue_position > 0).map(toPublic);
   },
 
   async book({ name, phone, service }) {
     const db = load();
-    if (!db.is_open) throw fail('दुकान सध्या बंद आहे. कृपया नंतर प्रयत्न करा किंवा फोन करा.');
+    const shop = shopOf(db);
+    const st = shopStatus(shop);
+    if (!st.open) throw fail(st.note);
     if (db.bookings.filter((b) => ACTIVE.includes(b.status)).length >= CONFIG.MAX_QUEUE) throw fail('रांग सध्या पूर्ण आहे. थोड्या वेळाने प्रयत्न करा');
     const { n, p, sv } = checkPerson(name, phone, service);
-    const row = insert(db, n, p, sv, CONFIG.AUTO_ACCEPT ? 'accepted' : 'pending', false);
+    const price = priceOf(getServices(shop, CONFIG.SERVICES), sv);
+    const row = insert(db, n, p, sv, CONFIG.AUTO_ACCEPT ? 'accepted' : 'pending', false, price);
     save(db);
-    return { id: row.id, token: row.client_token };
+    return { id: row.id, token: row.id, price };
+  },
+
+  // the customer cancels his own number (not allowed once he is in the chair)
+  async cancelMine(id) {
+    const db = load();
+    const b = db.bookings.find((x) => x.id === id);
+    if (!b || !['pending', 'accepted'].includes(b.status)) throw fail('आता नंबर रद्द करता येत नाही');
+    b.status = 'cancelled';
+    b.updated_at = new Date().toISOString();
+    save(db);
+  },
+
+  // "I will be late": swap places with the person behind
+  async delayMine(id) {
+    const db = load();
+    const waiting = db.bookings.filter((x) => ['pending', 'accepted'].includes(x.status)).sort((a, b) => a.queue_position - b.queue_position);
+    const i = waiting.findIndex((x) => x.id === id);
+    if (i < 0) throw fail('आता हे करता येत नाही');
+    const other = waiting[i + 1];
+    if (!other) throw fail('तुम्ही आधीच शेवटी आहात');
+    [waiting[i].queue_position, other.queue_position] = [other.queue_position, waiting[i].queue_position];
+    waiting[i].notified_next = false;
+    other.notified_next = false;
+    save(db);
   },
 
   async savePush() {
@@ -1071,6 +1283,15 @@ const api = {
   subscribe(cb) {
     listeners.add(cb);
     return () => listeners.delete(cb);
+  },
+
+  // ---------- slider photos ----------
+  async getSlideIds() {
+    return (load().slides || []).map((x) => x.id);
+  },
+
+  async getSlides() {
+    return (load().slides || []).map((x) => ({ id: x.id, src: x.image, alt: 'दुकानाचा फोटो' }));
   },
 
   // ---------- barber ----------
@@ -1085,10 +1306,24 @@ const api = {
     const db = load();
     const startOfDay = new Date();
     startOfDay.setHours(0, 0, 0, 0);
+    const doneToday = db.bookings.filter((b) => b.status === 'completed' && new Date(b.updated_at) >= startOfDay);
     return {
       bookings: db.bookings.filter((b) => ACTIVE.includes(b.status)).map((b) => ({ ...b, client_token: undefined })),
-      completed_today: db.bookings.filter((b) => b.status === 'completed' && new Date(b.updated_at) >= startOfDay).length,
+      completed_today: doneToday.length,
+      earnings_today: doneToday.reduce((sum, b) => sum + (b.price || 0), 0),
     };
+  },
+
+  // earlier visits of these phone numbers: { phone: { visits, last_service } }
+  async history(token, phones) {
+    requireBarber(token);
+    const db = load();
+    const out = {};
+    phones.forEach((p) => {
+      const done = db.bookings.filter((b) => b.phone === p && b.status === 'completed').sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+      out[p] = { visits: done.length, last_service: done[0] ? done[0].service : '' };
+    });
+    return out;
   },
 
   async update(token, id, action, minutes) {
@@ -1137,11 +1372,22 @@ const api = {
     save(db);
   },
 
+  // "undo": put a booking back exactly as it was
+  async restore(token, id, snap) {
+    requireBarber(token);
+    const db = load();
+    const b = db.bookings.find((x) => x.id === id);
+    if (!b) throw fail('नोंद सापडली नाही');
+    if (snap.status === 'in_progress' && db.bookings.some((x) => x.status === 'in_progress' && x.id !== id)) throw fail('खुर्चीवर दुसरा ग्राहक आहे, म्हणून परत आणता येत नाही');
+    Object.assign(b, { status: snap.status, started_at: snap.started_at, duration_minutes: snap.duration_minutes, updated_at: new Date().toISOString() });
+    save(db);
+  },
+
   async addWalkin(token, { name, phone, service }) {
     requireBarber(token);
     const db = load();
     const { n, p, sv } = checkPerson(name, phone, service);
-    insert(db, n, p, sv, 'accepted', true);
+    insert(db, n, p, sv, 'accepted', true, priceOf(getServices(shopOf(db), CONFIG.SERVICES), sv));
     save(db);
   },
 
@@ -1152,15 +1398,7 @@ const api = {
     save(db);
   },
 
-  // ---------- slider photos ----------
-  async getSlideIds() {
-    return (load().slides || []).map((x) => x.id);
-  },
-
-  async getSlides() {
-    return (load().slides || []).map((x) => ({ id: x.id, src: x.image, alt: 'दुकानाचा फोटो' }));
-  },
-
+  // ---------- slider photos (barber) ----------
   async addSlide(token, image) {
     requireBarber(token);
     const db = load();
@@ -1177,6 +1415,9 @@ const api = {
     db.slides = (db.slides || []).filter((x) => x.id !== id);
     save(db);
   },
+
+  // the barber's own phone gets notified of new bookings (needs the real backend)
+  async saveBarberPush() {},
 
   async setOpen(token, open) {
     requireBarber(token);
@@ -1201,6 +1442,8 @@ const supabaseBackend = (() => {
 
 const ACTIVE = ['pending', 'accepted', 'in_progress'];
 const COLS = 'id,name,phone,service,status,is_walk_in,queue_position,duration_minutes,started_at,created_at';
+// the shop row WITHOUT the big payment-QR picture (that is fetched separately, only when needed)
+const SHOP_COLS = 'id,shop_name,barber_name,phone,address,is_open,avg_minutes,services,notice,upi_id,has_qr,open_time,close_time';
 // ---------------------------------------------------------------------------
 // Tiny client for Supabase's REST API. It uses plain fetch(), so it needs nothing
 // from any CDN: if your network can reach your Supabase project, it works.
@@ -1319,16 +1562,21 @@ async function loadRealtimeLib() {
 
 const fail = (msg, extra = {}) => Object.assign(new Error(msg), extra);
 
-// await a Supabase query and turn any error into a Marathi message
+// turn a Supabase error into a Marathi message that keeps the technical reason for the screen
+function toErr(error) {
+  console.error('Supabase error:', error);
+  return fail('काहीतरी चुकले. इंटरनेट तपासा आणि पुन्हा प्रयत्न करा', { detail: error.message || error.details || '' });
+}
+
+// await a query; any error is thrown
 async function run(query) {
   const { data, error, count } = await query;
-  if (error) {
-    console.error('Supabase error:', error);
-    // the technical reason is kept so the page can show what is wrong (e.g. tables missing)
-    throw fail('काहीतरी चुकले. इंटरनेट तपासा आणि पुन्हा प्रयत्न करा', { detail: error.message || error.details || '' });
-  }
+  if (error) throw toErr(error);
   return { data, count };
 }
+
+// await a query but hand the error back (used when an older database may lack a newer column)
+const runSoft = (query) => query;
 
 function requireBarber(token) {
   if (!token || !String(token).startsWith('ok-')) throw fail('पुन्हा साइन इन करा', { unauthorized: true });
@@ -1349,24 +1597,50 @@ async function assertNoActiveBooking(c, phone) {
   if (data.length) throw fail('या नंबरवर आधीच एक नोंद सुरू आहे');
 }
 
-// tell the push function (optional) that something changed. Never blocks the page.
-function notify(event, bookingId) {
-  if (!CONFIG.VAPID_PUBLIC_KEY || !CONFIG.PUSH_KEY) return;
+// the shop row; an older database without the newer columns still works (it just has fewer settings)
+async function getShopRow() {
+  const c = await sb();
+  let r = await runSoft(c.from('shop_settings').select(SHOP_COLS).eq('id', 1).single());
+  if (r.error) r = await runSoft(c.from('shop_settings').select('*').eq('id', 1).single());
+  if (r.error) throw toErr(r.error);
+  const { pay_qr, ...shop } = r.data;
+  return { ...shop, has_qr: shop.has_qr ?? !!pay_qr };
+}
+
+// asks the push function (optional) to send something. Never blocks or breaks the page.
+function callPush(payload) {
+  if (!CONFIG.VAPID_PUBLIC_KEY) return;
   fetch(`${CONFIG.SUPABASE_URL}/functions/v1/${CONFIG.PUSH_FUNCTION}`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', apikey: CONFIG.SUPABASE_ANON_KEY },
-    body: JSON.stringify({ event, booking_id: bookingId, token: CONFIG.PUSH_KEY }),
+    body: JSON.stringify(payload),
   })
     .then((r) => r.json().then((j) => console.info('push:', r.status, j)))
     .catch((err) => console.warn('push function not reachable (alerts only work while the page is open):', err.message));
 }
+const notify = (event, bookingId) => { if (CONFIG.PUSH_KEY) callPush({ event, booking_id: bookingId, token: CONFIG.PUSH_KEY }); };
 
 const EVENT_FOR_ACTION = { accept: 'accepted', reject: 'rejected', start: 'started', complete: 'check', cancel: 'cancelled', move_up: 'check', move_down: 'check', extend: 'check' };
 
+// insert a booking; if the database has no "price" column yet, save it without the price
+async function insertBooking(c, row) {
+  let r = await runSoft(c.from('bookings').insert(row).select('id').single());
+  if (r.error && /price/i.test(r.error.message || '')) {
+    const { price, ...withoutPrice } = row;
+    r = await runSoft(c.from('bookings').insert(withoutPrice).select('id').single());
+  }
+  if (r.error) throw toErr(r.error);
+  return r.data;
+}
+
 const api = {
   async getShop() {
+    return getShopRow();
+  },
+
+  async getPayQr() {
     const c = await sb();
-    return (await run(c.from('shop_settings').select('*').eq('id', 1).single())).data;
+    return (await run(c.from('shop_settings').select('pay_qr').eq('id', 1).single())).data.pay_qr || '';
   },
 
   // customers get the queue without full phone numbers
@@ -1374,25 +1648,55 @@ const api = {
     const c = await sb();
     const since = new Date(Date.now() - 86400000).toISOString();
     const { data } = await run(c.from('bookings').select(COLS).gte('created_at', since));
-    return data.map(({ phone, service, ...r }) => ({ ...r, phone_masked: maskPhone(phone) }));
+    return data.map(({ phone, ...r }) => ({ ...r, phone_masked: maskPhone(phone) }));
   },
 
   async book({ name, phone, service }) {
     const c = await sb();
     const { n, p, sv } = checkPerson(name, phone, service);
-    const shop = (await run(c.from('shop_settings').select('is_open').eq('id', 1).single())).data;
-    if (!shop.is_open) throw fail('दुकान सध्या बंद आहे. कृपया नंतर प्रयत्न करा किंवा फोन करा.');
+    const shop = await getShopRow();
+    const st = shopStatus(shop);
+    if (!st.open) throw fail(st.note);
     await assertNoActiveBooking(c, p);
     const full = await run(c.from('bookings').select('id', { count: 'exact', head: true }).in('status', ACTIVE));
     if (full.count >= CONFIG.MAX_QUEUE) throw fail('रांग सध्या पूर्ण आहे. थोड्या वेळाने प्रयत्न करा');
+    const price = priceOf(getServices(shop, CONFIG.SERVICES), sv);
     const status = CONFIG.AUTO_ACCEPT ? 'accepted' : 'pending';
-    const { data } = await run(c.from('bookings').insert({ name: n, phone: p, service: sv, status }).select('id').single());
-    return { id: data.id, token: data.id };
+    const row = await insertBooking(c, { name: n, phone: p, service: sv, status, price });
+    callPush({ event: 'new_booking', booking_id: row.id }); // wakes the barber's phone (if he turned that on)
+    return { id: row.id, token: row.id, price };
+  },
+
+  // the customer cancels his own number (not allowed once he is in the chair)
+  async cancelMine(id) {
+    const c = await sb();
+    const { data } = await run(c.from('bookings').update({ status: 'cancelled', updated_at: new Date().toISOString() }).eq('id', id).in('status', ['pending', 'accepted']).select('id'));
+    if (!data || !data.length) throw fail('आता नंबर रद्द करता येत नाही');
+  },
+
+  // "I will be late": swap places with the person behind
+  async delayMine(id) {
+    const c = await sb();
+    const { data: waiting } = await run(c.from('bookings').select('id,queue_position').in('status', ['pending', 'accepted']).order('queue_position', { ascending: true }));
+    const i = waiting.findIndex((x) => x.id === id);
+    if (i < 0) throw fail('आता हे करता येत नाही');
+    const other = waiting[i + 1];
+    if (!other) throw fail('तुम्ही आधीच शेवटी आहात');
+    const now = new Date().toISOString();
+    await run(c.from('bookings').update({ queue_position: other.queue_position, notified_next: false, updated_at: now }).eq('id', id));
+    await run(c.from('bookings').update({ queue_position: waiting[i].queue_position, notified_next: false, updated_at: now }).eq('id', other.id));
   },
 
   async savePush(bookingId, _token, endpoint, p256dh, auth) {
     const c = await sb();
     await run(c.from('push_subscriptions').upsert({ booking_id: bookingId, endpoint, p256dh, auth }, { onConflict: 'endpoint' }));
+  },
+
+  // the barber's own phone, so that it rings when a customer books
+  async saveBarberPush(token, sub) {
+    requireBarber(token);
+    const c = await sb();
+    await run(c.from('barber_push').upsert({ endpoint: sub.endpoint, p256dh: sub.keys.p256dh, auth: sub.keys.auth }, { onConflict: 'endpoint' }));
   },
 
   subscribe(cb) {
@@ -1430,11 +1734,33 @@ const api = {
   async list(token) {
     requireBarber(token);
     const c = await sb();
-    const { data } = await run(c.from('bookings').select(COLS).in('status', ACTIVE).order('queue_position', { ascending: true }));
+    let r = await runSoft(c.from('bookings').select(COLS + ',price').in('status', ACTIVE).order('queue_position', { ascending: true }));
+    if (r.error) r = await run(c.from('bookings').select(COLS).in('status', ACTIVE).order('queue_position', { ascending: true })); // no price column yet
+    const data = r.data;
     const startOfDay = new Date();
     startOfDay.setHours(0, 0, 0, 0);
-    const done = await run(c.from('bookings').select('id', { count: 'exact', head: true }).eq('status', 'completed').gte('updated_at', startOfDay.toISOString()));
-    return { bookings: data, completed_today: done.count || 0 };
+    const since = startOfDay.toISOString();
+    let done = await runSoft(c.from('bookings').select('price').eq('status', 'completed').gte('updated_at', since));
+    if (done.error) done = await run(c.from('bookings').select('id').eq('status', 'completed').gte('updated_at', since)); // no price column yet
+    const rows = done.data || [];
+    return { bookings: data, completed_today: rows.length, earnings_today: rows.reduce((sum, r) => sum + (r.price || 0), 0) };
+  },
+
+  // earlier visits of these phone numbers: { phone: { visits, last_service } }
+  async history(token, phones) {
+    requireBarber(token);
+    const out = {};
+    phones.forEach((p) => { out[p] = { visits: 0, last_service: '' }; });
+    if (!phones.length) return out;
+    const c = await sb();
+    const { data } = await run(c.from('bookings').select('phone,service,created_at').eq('status', 'completed').in('phone', phones).order('created_at', { ascending: false }).limit(300));
+    data.forEach((r) => {
+      const h = out[r.phone];
+      if (!h) return;
+      if (h.visits === 0) h.last_service = r.service;
+      h.visits += 1;
+    });
+    return out;
   },
 
   async update(token, id, action, minutes = null) {
@@ -1487,18 +1813,42 @@ const api = {
     if (event) notify(event, id);
   },
 
+  // "undo": put a booking back exactly as it was
+  async restore(token, id, snap) {
+    requireBarber(token);
+    const c = await sb();
+    if (snap.status === 'in_progress') {
+      const busy = await run(c.from('bookings').select('id').eq('status', 'in_progress').limit(1));
+      if (busy.data.length && busy.data[0].id !== id) throw fail('खुर्चीवर दुसरा ग्राहक आहे, म्हणून परत आणता येत नाही');
+    }
+    await run(c.from('bookings').update({ status: snap.status, started_at: snap.started_at, duration_minutes: snap.duration_minutes, updated_at: new Date().toISOString() }).eq('id', id));
+  },
+
   async addWalkin(token, { name, phone, service }) {
     requireBarber(token);
     const c = await sb();
     const { n, p, sv } = checkPerson(name, phone, service);
     await assertNoActiveBooking(c, p);
-    await run(c.from('bookings').insert({ name: n, phone: p, service: sv, status: 'accepted', is_walk_in: true }));
+    const shop = await getShopRow();
+    const price = priceOf(getServices(shop, CONFIG.SERVICES), sv);
+    await insertBooking(c, { name: n, phone: p, service: sv, status: 'accepted', is_walk_in: true, price });
   },
 
   async saveShop(token, info) {
     requireBarber(token);
     const c = await sb();
-    await run(c.from('shop_settings').update(info).eq('id', 1));
+    const r = await runSoft(c.from('shop_settings').update(info).eq('id', 1));
+    if (!r.error) return;
+    // an older database has no columns for the newer settings: still save the basics, and say what is missing
+    if (/column|schema cache/i.test(r.error.message || '')) {
+      const core = {};
+      ['shop_name', 'barber_name', 'phone', 'address', 'is_open', 'avg_minutes'].forEach((k) => { if (k in info) core[k] = info[k]; });
+      if (Object.keys(core).length) {
+        const r2 = await runSoft(c.from('shop_settings').update(core).eq('id', 1));
+        if (!r2.error) throw fail('नाव, फोन आणि पत्ता जतन झाले. पण सूचना, वेळा वगैरे जतन झाल्या नाहीत: आधी "सेटअप मदत" मधील SQL एकदा चालवा.');
+      }
+    }
+    throw toErr(r.error);
   },
 
   // ---------- slider photos ----------
@@ -1555,6 +1905,17 @@ let showAll = false;
 const VISIBLE = 4;
 let prevKey = null;
 let swReg = null;
+let showQr = false; // payment QR picture is shown
+let payQr = null; // the picture itself (null = not loaded yet)
+let svcSig = '';
+let infoSig = '';
+let shopLoaded = false; // the details card waits for the real shop data, so it never flashes wrong information
+let deferredInstall = null;
+
+const avgMinutes = () => shop.avg_minutes || CONFIG.AVG_SERVICE_MINUTES;
+const servicesOf = () => getServices(shop, CONFIG.SERVICES);
+// how long a customer's service usually takes (0 = unknown, the shop average is used)
+const minutesFor = (r) => (servicesOf().find((s) => s.name === r.service) || {}).minutes || 0;
 
 function readMine() {
   try { return JSON.parse(localStorage.getItem(STORE) || 'null'); } catch { return null; }
@@ -1585,18 +1946,18 @@ function goSlide(i) {
 function renderSlides(list) {
   const all = [...CONFIG.SLIDES, ...list];
   const sig = all.map((s) => s.id || s.src).join('|');
-  if (sig === slideSig) return;
-  slideSig = sig;
-  slideCount = all.length;
-  slideIdx = 0;
-  // no photos yet: the slider shrinks to a slim bar (login + clock) instead of showing a empty box
-  document.querySelector('.hero').classList.toggle('no-photos', all.length === 0);
-  $('slides').innerHTML = all
-    .map((s, i) => `<figure class="slide"><img src="${esc(s.src)}" alt="${esc(s.alt || 'दुकानाचा फोटो')}" ${i ? 'loading="lazy"' : ''} decoding="async"></figure>`)
-    .join('');
-  $('dots').innerHTML = all.length > 1 ? all.map((_, i) => `<button type="button" aria-label="फोटो ${i + 1}" data-i="${i}"></button>`).join('') : '';
-  $('slides').scrollLeft = 0;
-  markDot();
+  if (sig !== slideSig) {
+    slideSig = sig;
+    slideCount = 1 + all.length; // the barber's details card is always the first slide
+    slideIdx = 0;
+    $('slides').innerHTML = '<figure class="slide info-slide" id="infoSlide"></figure>' +
+      all.map((s) => `<figure class="slide"><img src="${esc(s.src)}" alt="${esc(s.alt || 'दुकानाचा फोटो')}" loading="lazy" decoding="async"></figure>`).join('');
+    infoSig = '';
+    $('dots').innerHTML = slideCount > 1 ? Array.from({ length: slideCount }, (_, i) => `<button type="button" aria-label="स्लाइड ${i + 1}" data-i="${i}"></button>`).join('') : '';
+    $('slides').scrollLeft = 0;
+    markDot();
+  }
+  renderInfoSlide();
 }
 
 // cheap check (ids only); the pictures themselves are downloaded only when something changed
@@ -1637,6 +1998,7 @@ function setupSlider() {
 async function refresh() {
   try {
     [shop, rows] = await Promise.all([backend.getShop(), backend.getQueue()]);
+    shopLoaded = true;
     $('netError').hidden = true;
     render(true);
   } catch (err) {
@@ -1647,7 +2009,7 @@ async function refresh() {
 }
 
 function recompute() {
-  q = buildQueue(rows, Date.now(), shop.avg_minutes || CONFIG.AVG_SERVICE_MINUTES, CONFIG.NEXT_ALERT_MINUTES);
+  q = buildQueue(rows, Date.now(), avgMinutes(), CONFIG.NEXT_ALERT_MINUTES, minutesFor);
 }
 
 function findMe() {
@@ -1659,14 +2021,55 @@ function findMe() {
 function renderHeader() {
   document.title = `${shop.shop_name} | नंबर लावा`;
   $('shopName').textContent = shop.shop_name;
-  $('barberName').textContent = shop.barber_name;
-  $('address').textContent = shop.address || '';
   const phone = String(shop.phone || '');
   $('phoneNum').textContent = phone;
   $('phoneText').href = `tel:${phone}`;
-  const st = $('shopState');
-  st.textContent = shop.is_open ? 'दुकान सुरू' : 'दुकान बंद';
-  st.classList.toggle('closed', !shop.is_open);
+  $('closedTag').hidden = shopStatus(shop).open; // a small red "बंद" next to the name when the shop is closed
+  const notice = (shop.notice || '').trim();
+  $('noticeBar').textContent = notice;
+  $('noticeBar').hidden = !notice;
+  const sig = JSON.stringify(servicesOf());
+  if (sig !== svcSig) { svcSig = sig; fillServices($('service'), servicesOf()); }
+}
+
+// the first slide is a live card with the barber's details (it follows whatever he saves in the app)
+function renderInfoSlide() {
+  const el = $('infoSlide');
+  if (!el || !shopLoaded) return;
+  const st = shopStatus(shop);
+  const addr = (shop.address || '').trim();
+  const hours = parseHM(shop.open_time) !== null && parseHM(shop.close_time) !== null ? `${fmtHM(shop.open_time)} ते ${fmtHM(shop.close_time)}` : '';
+  const sig = JSON.stringify([shop.barber_name, addr, st.label, hours]);
+  if (sig === infoSig) return;
+  infoSig = sig;
+  const map = addr ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(addr)}` : '';
+  el.innerHTML = `
+    <span class="info-clock" aria-label="सध्याची वेळ"><svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path fill="currentColor" d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg><span id="clockText"></span></span>
+    <div class="who">
+      <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M9.64 7.64c.23-.5.36-1.05.36-1.64 0-2.21-1.79-4-4-4S2 3.79 2 6s1.79 4 4 4c.59 0 1.14-.13 1.64-.36L10 12l-2.36 2.36C7.14 14.13 6.59 14 6 14c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4c0-.59-.13-1.14-.36-1.64L12 14l7 7h3v-1L9.64 7.64zM6 8c-1.1 0-2-.89-2-2s.9-2 2-2 2 .89 2 2-.9 2-2 2zm0 12c-1.1 0-2-.89-2-2s.9-2 2-2 2 .89 2 2-.9 2-2 2zm6-7.5c-.28 0-.5-.22-.5-.5s.22-.5.5-.5.5.22.5.5-.22.5-.5.5zM19 3l-6 6 2 2 7-7V3h-3z"/></svg>
+      <span>केशकर्तनकार</span>
+      <em id="shopState" class="state${st.open ? '' : ' closed'}">${st.label}</em>
+    </div>
+    <p id="barberName" class="contact-name">${esc(shop.barber_name)}</p>
+    ${addr ? `<a id="address" class="map-pill" href="${esc(map)}" target="_blank" rel="noopener" aria-label="पत्ता, नकाशावर पाहा"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg><span>${esc(addr)}</span></a>` : ''}
+    ${hours ? `<p class="info-hours">वेळ: ${esc(hours)}</p>` : ''}`;
+  updateClock();
+}
+
+// buttons to pay: the UPI link opens GPay / PhonePe / Paytm with the amount filled in
+function payHTML() {
+  const upi = String(shop.upi_id || '').replace(/[^a-zA-Z0-9.\-_@]/g, '');
+  if (!upi && !shop.has_qr) return '';
+  const price = mine && mine.price ? mine.price : 0;
+  const link = upi ? `upi://pay?pa=${upi}&pn=${encodeURIComponent(shop.shop_name || '')}&cu=INR${price ? `&am=${price}` : ''}` : '';
+  return `<div class="pay">
+    <p class="note"><b>पैसे द्या${price ? ` ₹${price}` : ''}</b></p>
+    <div class="pay-actions">
+      ${upi ? `<a class="btn btn-primary btn-sm" href="${esc(link)}">UPI ने पैसे द्या</a>` : ''}
+      ${shop.has_qr ? `<button class="btn btn-ghost btn-sm" data-act="qr" type="button">${showQr ? 'QR लपवा' : 'QR दाखवा'}</button>` : ''}
+    </div>
+    ${showQr && shop.has_qr ? (payQr ? `<img class="payqr" src="${esc(payQr)}" alt="पेमेंट QR">` : '<p class="note">QR येत आहे...</p>') : ''}
+  </div>`;
 }
 
 function ticketHTML(me) {
@@ -1684,9 +2087,9 @@ function ticketHTML(me) {
     cls = 'is-next';
     head = `<div class="t-num">#${row.index + 1}</div><div><h2>${first}, तुम्ही पुढचे आहात</h2><p>कृपया आता दुकानात या.</p></div>`;
   } else if (row && row.status === 'accepted') {
-    head = `<div class="t-num">#${row.index + 1}</div><div><h2>${first}, तुम्ही रांगेत आहात</h2><p>तुमच्या पुढे ${row.ahead} जण. प्रतीक्षा: ${waitText(row.waitMin)}.</p></div>`;
+    head = `<div class="t-num">#${row.index + 1}</div><div><h2>${first}, तुम्ही रांगेत आहात</h2><p>तुमच्या पुढे ${row.ahead} जण. अंदाजे ${fmtTime(row.etaMs)} ला तुमचा नंबर.</p></div>`;
   } else if (row && row.status === 'pending') {
-    head = `<div class="t-num">#${row.index + 1}</div><div><h2>विनंती पाठवली</h2><p>केशकर्तनकार स्वीकारण्याची वाट पाहत आहोत. हे पान उघडे ठेवा किंवा नंतर परत या.</p></div>`;
+    head = `<div class="t-num">#${row.index + 1}</div><div><h2>विनंती पाठवली</h2></div>`;
   } else if (me.status === 'completed') {
     cls = 'is-done';
     head = `<div class="t-num">पूर्ण</div><div><h2>धन्यवाद, ${first}</h2><p>केस कापणी आवडली असेल. पुन्हा भेटू.</p></div>`;
@@ -1697,17 +2100,25 @@ function ticketHTML(me) {
   }
 
   const active = row && ['pending', 'accepted', 'in_progress'].includes(row.status);
-  const svc = active && mine && mine.service ? `<p class="note svc">तुमची सेवा: <b>${esc(mine.service)}</b></p>` : '';
+  const svc = active && mine && mine.service ? `<p class="note svc">तुमची सेवा: <b>${esc(mine.service)}</b>${mine.price ? ` (₹${mine.price})` : ''}</p>` : '';
   if (active) {
     if (permission === 'default') {
-      body = `${svc}<div class="t-actions"><button class="btn btn-dark btn-block" data-act="notify" type="button">माझी पाळी आली की सूचना द्या</button><p class="note">Chrome विचारेल तेव्हा "परवानगी द्या" दाबा. ${MODE === 'demo' ? 'डेमो मोडमध्ये पान उघडे असतानाच सूचना येतात.' : 'पान बंद असले तरी सूचना येतात.'}</p></div>`;
+      body = `${svc}<div class="t-actions"><button class="btn btn-dark btn-block" data-act="notify" type="button">माझी पाळी आली की सूचना द्या</button></div>`;
     } else if (permission === 'denied') {
       body = `${svc}<p class="note">या साइटसाठी सूचना बंद आहेत. Chrome मध्ये कुलूप चिन्ह, परवानग्या, सूचना येथे चालू करा.</p>`;
     } else if (permission === 'granted') {
       body = `${svc}<p class="note">सूचना चालू आहेत. तुमचा नंबर जवळ आला की कळवू.</p>`;
+    } else {
+      body = svc;
     }
+    // waiting (not yet in the chair): let him step back or give up his number
+    if (row.status !== 'in_progress') {
+      const last = row.index === q.list.length - 1;
+      body += `<div class="t-small">${last ? '' : '<button class="btn btn-ghost btn-sm" data-act="delay" type="button">उशीर होईल, एक नंबर मागे जा</button>'}<button class="btn btn-ghost btn-sm" data-act="cancel" type="button">नंबर रद्द करा</button></div>`;
+    }
+    if (row.status === 'in_progress') body += payHTML();
   } else {
-    body = `<div class="t-actions"><button class="btn btn-primary btn-block" data-act="again" type="button">पुन्हा नंबर लावा</button></div>`;
+    body = (me.status === 'completed' ? payHTML() : '') + `<div class="t-actions"><button class="btn btn-primary btn-block" data-act="again" type="button">पुन्हा नंबर लावा</button></div>`;
   }
   return { cls, html: `<div class="ticket-head">${head}</div>${body}` };
 }
@@ -1726,15 +2137,14 @@ function endText(c) {
 }
 
 function updateClock() {
-  $('clockText').textContent = fmtTime(Date.now());
+  const el = $('clockText');
+  if (el) el.textContent = fmtTime(Date.now());
 }
 
 function renderLive() {
-  const avg = shop.avg_minutes || CONFIG.AVG_SERVICE_MINUTES;
   const c = q.current;
-  const cur = c ? Math.max(0, Math.ceil(c.leftMs / 60000)) : 0;
   $('liveCount').textContent = q.list.length;
-  $('liveWait').innerHTML = `${cur + q.waiting.length * avg}<small>मि.</small>`;
+  $('liveWait').innerHTML = `${q.waitForNew}<small>मि.</small>`;
   $('liveChair').textContent = c ? c.name : 'रिकामी';
   $('liveTime').textContent = c ? fmtClock(c.leftMs) : '';
   $('liveTime').classList.toggle('over', !!c && c.leftMs < 0);
@@ -1777,6 +2187,7 @@ function render() {
   const me = findMe();
   if (mine && !me) writeMine(null); // booking too old to be listed any more
   renderHeader();
+  renderInfoSlide();
   renderTicket(me);
   renderBookForm(me);
   renderLive();
@@ -1788,7 +2199,7 @@ function render() {
 }
 
 function makeSignature(me) {
-  return q.list.map((r) => `${r.id}:${r.status}:${r.isNext ? 1 : 0}:${r.waitMin}`).join('|') + `#${me ? me.status : ''}#${shop.is_open}#${shop.shop_name}#${q.current ? Math.ceil(q.current.leftMs / 60000) : 0}#${showAll}`;
+  return q.list.map((r) => `${r.id}:${r.status}:${r.isNext ? 1 : 0}:${r.waitMin}`).join('|') + `#${me ? me.status : ''}#${shopStatus(shop).open}#${shop.shop_name}#${q.current ? Math.ceil(q.current.leftMs / 60000) : 0}#${showAll}#${showQr}#${shop.notice}#${shop.upi_id}#${shop.has_qr}`;
 }
 
 // Runs every second: cheap updates only, full render when something changed.
@@ -1851,7 +2262,7 @@ async function enablePush() {
 async function subscribePush() {
   if (MODE !== 'supabase' || !CONFIG.VAPID_PUBLIC_KEY || !mine) return;
   try {
-    const reg = await navigator.serviceWorker.ready;
+    const reg = await withTimeout(navigator.serviceWorker.ready, 4000, 'sw.js फाइल अपलोड केलेली नाही');
     const sub = (await reg.pushManager.getSubscription()) ||
       (await reg.pushManager.subscribe({ userVisibleOnly: true, applicationServerKey: urlB64ToUint8Array(CONFIG.VAPID_PUBLIC_KEY) }));
     const j = sub.toJSON();
@@ -1870,9 +2281,25 @@ $('queueList').addEventListener('click', (e) => {
 $('ticketWrap').addEventListener('click', (e) => {
   const b = e.target.closest('[data-act]');
   if (!b) return;
-  if (b.dataset.act === 'notify') enablePush();
-  if (b.dataset.act === 'again') { writeMine(null); prevKey = null; render(); }
+  const act = b.dataset.act;
+  if (act === 'notify') enablePush();
+  if (act === 'again') { writeMine(null); prevKey = null; showQr = false; render(); }
+  if (act === 'qr') { showQr = !showQr; render(); if (showQr) loadQr(); }
+  if (act === 'cancel' && confirm('तुमचा नंबर रद्द करायचा?')) {
+    backend.cancelMine(mine.id).then(() => { toast('तुमचा नंबर रद्द केला.', { type: 'ok' }); return refresh(); }).catch((err) => toast(err.message, { type: 'error' }));
+  }
+  if (act === 'delay') {
+    backend.delayMine(mine.id).then(() => { toast('ठीक आहे, तुम्ही एक नंबर मागे गेलात.', { type: 'ok' }); return refresh(); }).catch((err) => toast(err.message, { type: 'error' }));
+  }
 });
+
+// the payment QR picture is big, so it is downloaded only when somebody asks to see it
+async function loadQr() {
+  if (!shop.has_qr || payQr !== null) return;
+  payQr = '';
+  try { payQr = await backend.getPayQr(); } catch (err) { console.error(err); }
+  render();
+}
 
 $('bookForm').addEventListener('submit', async (e) => {
   e.preventDefault();
@@ -1885,8 +2312,9 @@ $('bookForm').addEventListener('submit', async (e) => {
   if (!validPhone(phone)) { err.textContent = 'वैध 10 अंकी मोबाईल नंबर टाका.'; err.hidden = false; $('phone').focus(); return; }
 
   if (!service) { err.textContent = 'कृपया सेवा निवडा.'; err.hidden = false; $('service').focus(); return; }
-  if (!shop.is_open) {
-    err.textContent = 'दुकान सध्या बंद आहे. कृपया नंतर प्रयत्न करा किंवा फोन करा.';
+  const st = shopStatus(shop);
+  if (!st.open) {
+    err.textContent = st.note;
     err.hidden = false;
     return;
   }
@@ -1896,7 +2324,8 @@ $('bookForm').addEventListener('submit', async (e) => {
   btn.textContent = 'नंबर लावत आहे...';
   try {
     const res = await backend.book({ name, phone, service });
-    writeMine({ id: res.id, token: res.token, name, service });
+    writeMine({ id: res.id, token: res.token, name, service, price: res.price || 0 });
+    localStorage.setItem('bq_last', JSON.stringify({ name, phone, service })); // remembered for next time
     prevKey = null;
     $('bookForm').reset();
     toast(CONFIG.AUTO_ACCEPT ? 'तुमचा नंबर लागला! तुम्ही रांगेत आहात.' : 'विनंती पाठवली. केशकर्तनकार लवकरच स्वीकारतील.', { type: 'ok' });
@@ -1918,15 +2347,34 @@ async function init() {
   console.info('सलून रांग, आवृत्ती', CONFIG.VERSION);
   updateClock();
   setupSlider();
+  renderSlides([]); // the details card shows at once; photos are added when they arrive
   loadSlides();
-  fillServices($('service'), CONFIG.SERVICES);
+  fillServices($('service'), servicesOf());
   attachMic($('name'), $('micBtn'), $('micStatus'), CONFIG.SPEECH_LANG, 'name');
   attachMic($('phone'), $('micPhoneBtn'), $('micPhoneStatus'), CONFIG.SPEECH_LANG, 'phone');
   swReg = await registerSW();
+  window.addEventListener('beforeinstallprompt', (e) => { e.preventDefault(); deferredInstall = e; $('installBtn').hidden = false; });
+  window.addEventListener('appinstalled', () => { $('installBtn').hidden = true; });
+  $('installBtn').addEventListener('click', async () => {
+    if (!deferredInstall) return;
+    deferredInstall.prompt();
+    await deferredInstall.userChoice;
+    deferredInstall = null;
+    $('installBtn').hidden = true;
+  });
   navigator.serviceWorker?.addEventListener('message', (e) => {
     if (e.data && e.data.type === 'push') { refresh(); beep(3); vibrate([300, 120, 300]); toast(e.data.body, { title: e.data.title, type: 'alert', ms: 9000 }); }
   });
   await refresh();
+  // fill in the name, number and service he used last time
+  try {
+    const last = JSON.parse(localStorage.getItem('bq_last') || 'null');
+    if (last && !$('name').value && !$('phone').value) {
+      $('name').value = last.name || '';
+      $('phone').value = last.phone || '';
+      if (last.service && servicesOf().some((x) => x.name === last.service)) $('service').value = last.service;
+    }
+  } catch { /* ignore */ }
   backend.subscribe(refresh);
   let pollN = 0;
   setInterval(() => {
@@ -1953,6 +2401,10 @@ let token = localStorage.getItem(TOKEN_KEY);
 let shop = { ...CONFIG.SHOP };
 let bookings = [];
 let doneToday = 0;
+let earnings = 0;
+const historyCache = new Map(); // phone -> { visits, last_service }
+let svcSig = '';
+let pushChecked = false;
 let q = buildQueue([], Date.now());
 let seen = null; // ids we've already told the barber about
 const snooze = new Map(); // "later" button: key -> time until which the popup stays quiet
@@ -1999,6 +2451,11 @@ function logout(message) {
   showLogin(message);
 }
 
+const servicesOf = () => getServices(shop, CONFIG.SERVICES);
+const minutesFor = (r) => (servicesOf().find((x) => x.name === r.service) || {}).minutes || 0;
+// if the database has not got the newer columns yet, point the barber to the one-time SQL
+const dbMessage = (err) => (/column|schema cache|does not exist|relation/i.test(`${err.detail || ''} ${err.message || ''}`) ? 'आधी "सेटअप मदत" मधील SQL एकदा चालवा.' : err.message);
+
 /* ------------------------------------------------------------------ data */
 async function refresh() {
   try {
@@ -2006,8 +2463,11 @@ async function refresh() {
     shop = s;
     bookings = data.bookings;
     doneToday = data.completed_today;
+    earnings = data.earnings_today || 0;
     render();
     detectNew();
+    loadHistory();
+    if (!pushChecked) { pushChecked = true; syncBarberPush(false); }
   } catch (err) {
     if (err.unauthorized) { logout('तुमचे सेशन संपले. पुन्हा साइन इन करा.'); return; }
     console.error(err);
@@ -2018,10 +2478,17 @@ async function refresh() {
   }
 }
 
-async function act(id, action, minutes) {
+async function act(id, action, minutes, { undo = true } = {}) {
+  const before = bookings.find((b) => b.id === id);
+  const snap = before ? { status: before.status, started_at: before.started_at, duration_minutes: before.duration_minutes } : null;
   try {
     await backend.update(token, id, action, minutes);
+    if (action === 'complete' && before) historyCache.delete(before.phone); // his visit count has just gone up
     await refresh();
+    if (undo && snap && (action === 'complete' || action === 'cancel')) {
+      const text = action === 'complete' ? `${before.name}: काम पूर्ण झाले` : `${before.name} यांना रांगेतून काढले`;
+      toast(text, { type: 'ok', ms: 8000, action: { label: 'परत आणा', onClick: () => undoAction(id, snap, before) } });
+    }
     return true;
   } catch (err) {
     if (err.unauthorized) { logout('तुमचे सेशन संपले. पुन्हा साइन इन करा.'); return false; }
@@ -2030,11 +2497,40 @@ async function act(id, action, minutes) {
   }
 }
 
-/* ------------------------------------------------------------------ render */
-function recompute() {
-  q = buildQueue(bookings, Date.now(), shop.avg_minutes || CONFIG.AVG_SERVICE_MINUTES, CONFIG.NEXT_ALERT_MINUTES);
+async function undoAction(id, snap, before) {
+  try {
+    await backend.restore(token, id, snap);
+    historyCache.delete(before.phone);
+    await refresh();
+    toast(`${before.name} यांना परत आणले.`, { type: 'ok' });
+  } catch (err) {
+    toast(err.message, { type: 'error' });
+  }
 }
 
+// earlier visits ("3 वेळा आले") are looked up once per phone number and remembered
+async function loadHistory() {
+  const need = [...new Set(bookings.map((b) => b.phone))].filter((p) => !historyCache.has(p));
+  if (!need.length) return;
+  try {
+    const h = await backend.history(token, need);
+    need.forEach((p) => historyCache.set(p, h[p] || { visits: 0, last_service: '' }));
+    render();
+  } catch (err) {
+    console.error(err);
+    need.forEach((p) => historyCache.set(p, { visits: 0, last_service: '' }));
+  }
+}
+
+/* ------------------------------------------------------------------ render */
+function recompute() {
+  q = buildQueue(bookings, Date.now(), shop.avg_minutes || CONFIG.AVG_SERVICE_MINUTES, CONFIG.NEXT_ALERT_MINUTES, minutesFor);
+}
+
+// green round call button: one tap opens the phone dialler with this customer's number
+const callBtn = (r) => `<a class="call-btn" href="tel:${esc(r.phone)}" aria-label="${esc(r.name)} यांना फोन करा"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg></a>`;
+const histChip = (r) => { const h = historyCache.get(r.phone); return h && h.visits ? `<span class="hist-chip">${h.visits} वेळा आले</span>` : ''; };
+const lastService = (r) => { const h = historyCache.get(r.phone); return h && h.last_service ? `. मागच्या वेळी: ${esc(h.last_service)}` : ''; };
 const svcChip = (r) => (r.service ? `<span class="svc-chip">${esc(r.service)}</span>` : '');
 
 function chairHTML() {
@@ -2044,7 +2540,7 @@ function chairHTML() {
     <div class="chair-person">
       <div>
         <div class="chair-name">${esc(c.name)}</div>
-        ${svcChip(c) ? `<div>${svcChip(c)}</div>` : ''}
+        ${svcChip(c) || histChip(c) ? `<div>${svcChip(c)}${histChip(c)}</div>` : ''}
         <a class="b-phone" href="tel:${esc(c.phone)}">${esc(c.phone)}</a>
       </div>
       <div id="chairTime" class="chair-time" aria-label="उरलेला वेळ">${fmtClock(c.leftMs)}</div>
@@ -2055,6 +2551,7 @@ function chairHTML() {
       <button class="btn btn-primary" data-act="complete" data-id="${c.id}" type="button">पूर्ण करा</button>
       <button class="btn btn-ghost" data-act="extend" data-id="${c.id}" data-min="10" type="button">10 मिनिटे वाढवा</button>
       <button class="btn btn-danger" data-act="cancel" data-id="${c.id}" type="button">रद्द करा</button>
+      ${callBtn(c)}
     </div>`;
 }
 
@@ -2075,11 +2572,14 @@ function itemHTML(r, i, total) {
       <div class="q-num">${num}</div>
       <div>
         <div class="b-name">${esc(r.name)}${r.is_walk_in ? '<span class="walkin">प्रत्यक्ष</span>' : ''}</div>
-        ${svcChip(r) ? `<div>${svcChip(r)}</div>` : ''}
+        ${svcChip(r) || histChip(r) ? `<div>${svcChip(r)}${histChip(r)}</div>` : ''}
         <a class="b-phone" href="tel:${esc(r.phone)}">${esc(r.phone)}</a>
-        <div class="b-time">नोंद: ${fmtTime(r.created_at)}, प्रतीक्षा: ${waitText(r.waitMin)}</div>
+        <div class="b-time">नोंद: ${fmtTime(r.created_at)}, प्रतीक्षा: ${waitText(r.waitMin)}${lastService(r)}</div>
       </div>
-      <span class="badge" data-s="${r.status}">${r.isNext ? 'पुढचा' : statusLabel(r.status)}</span>
+      <div class="b-side">
+        <span class="badge" data-s="${r.status}">${r.isNext ? 'पुढचा' : statusLabel(r.status)}</span>
+        ${callBtn(r)}
+      </div>
     </div>
     <div class="b-actions row">${actions}${up}${down}</div>
   </li>`;
@@ -2094,6 +2594,10 @@ function render() {
   $('sWaiting').textContent = q.waiting.length;
   $('sChair').textContent = q.current ? 1 : 0;
   $('sDone').textContent = doneToday;
+  $('sMoney').textContent = earnings ? `₹${earnings.toLocaleString('en-IN')}` : '';
+  $('sMoney').hidden = !earnings;
+  const sig = JSON.stringify(servicesOf());
+  if (sig !== svcSig) { svcSig = sig; fillServices($('wService'), servicesOf()); }
   $('chairBody').innerHTML = chairHTML();
   $('waitCount').textContent = q.waiting.length ? `${q.waiting.length} प्रतीक्षेत` : '';
   $('waitList').innerHTML = q.waiting.length
@@ -2103,7 +2607,7 @@ function render() {
 }
 
 function makeSignature() {
-  return q.list.map((r) => `${r.id}:${r.status}:${r.isNext ? 1 : 0}:${r.waitMin}:${r.queue_position}:${r.duration_minutes}`).join('|') + `#${shop.is_open}`;
+  return q.list.map((r) => `${r.id}:${r.status}:${r.isNext ? 1 : 0}:${r.waitMin}:${r.queue_position}:${r.duration_minutes}`).join('|') + `#${shop.is_open}#${historyCache.size}#${earnings}`;
 }
 
 function tick() {
@@ -2146,7 +2650,7 @@ $('nextBtn').addEventListener('click', async () => {
   const ctx = timeCtx;
   ctx.handled = true;
   $('timeDialog').close();
-  if ((await act(ctx.id, 'complete')) && ctx.next) openDuration(ctx.next.id, ctx.next.name, ctx.next.service);
+  if ((await act(ctx.id, 'complete', null, { undo: false })) && ctx.next) openDuration(ctx.next.id, ctx.next.name, ctx.next.service);
 });
 $('timeLater').addEventListener('click', () => $('timeDialog').close());
 $('timeDialog').addEventListener('close', () => {
@@ -2210,7 +2714,7 @@ document.addEventListener('click', (e) => {
 /* duration dialog */
 function openDuration(id, name, service = '') {
   pendingStartId = id;
-  const hit = CONFIG.SERVICES.find((s) => s.name === service);
+  const hit = servicesOf().find((s) => s.name === service);
   const suggested = hit ? Math.min(60, Math.max(10, Math.ceil(hit.minutes / 10) * 10)) : 0;
   $('durWho').textContent = `${name}${service ? ` (${service})` : ''} यांना किती वेळ लागेल? शेवटच्या ${CONFIG.NEXT_ALERT_MINUTES} मिनिटांआधी पुढच्या ग्राहकाला सूचना जाईल.`;
   $('durGrid').innerHTML = [10, 20, 30, 40, 50, 60]
@@ -2275,6 +2779,9 @@ $('shopBtn').addEventListener('click', () => {
   $('sBarber').value = shop.barber_name || '';
   $('sPhone').value = shop.phone || '';
   $('sAddress').value = shop.address || '';
+  $('sNotice').value = shop.notice || '';
+  $('sOpen').value = shop.open_time || '';
+  $('sClose').value = shop.close_time || '';
   $('shopDialog').showModal();
 });
 $('shopCancel').addEventListener('click', () => $('shopDialog').close());
@@ -2287,10 +2794,14 @@ $('shopForm').addEventListener('submit', async (e) => {
     barber_name: $('sBarber').value.trim(),
     phone: normalizePhone($('sPhone').value),
     address: $('sAddress').value.trim(),
+    notice: $('sNotice').value.trim(),
+    open_time: $('sOpen').value || '',
+    close_time: $('sClose').value || '',
   };
   if (info.shop_name.length < 2) { err.textContent = 'कृपया दुकानाचे नाव टाका.'; err.hidden = false; return; }
   if (info.barber_name.length < 2) { err.textContent = 'कृपया केशकर्तनकाराचे नाव टाका.'; err.hidden = false; return; }
   if (!validPhone(info.phone)) { err.textContent = 'वैध 10 अंकी फोन नंबर टाका.'; err.hidden = false; return; }
+  if (!!info.open_time !== !!info.close_time) { err.textContent = 'उघडण्याची आणि बंद होण्याची, दोन्ही वेळा भरा किंवा दोन्ही रिकाम्या ठेवा.'; err.hidden = false; return; }
   try {
     await backend.saveShop(token, info);
     $('shopDialog').close();
@@ -2298,7 +2809,136 @@ $('shopForm').addEventListener('submit', async (e) => {
     await refresh();
   } catch (error) {
     if (error.unauthorized) { $('shopDialog').close(); logout('तुमचे सेशन संपले. पुन्हा साइन इन करा.'); return; }
-    err.textContent = error.message; err.hidden = false;
+    err.textContent = dbMessage(error); err.hidden = false;
+  }
+});
+
+/* ---------- services and prices ---------- */
+const svcRow = (s = { name: '', minutes: 20, price: 0 }) => `<div class="svc-row"><input class="s-name" type="text" maxlength="40" placeholder="सेवेचे नाव" value="${esc(s.name)}" aria-label="सेवेचे नाव"><input class="s-min" type="number" inputmode="numeric" min="5" max="120" placeholder="मिनिटे" value="${s.minutes || ''}" aria-label="मिनिटे"><input class="s-price" type="number" inputmode="numeric" min="0" max="99999" placeholder="₹" value="${s.price || ''}" aria-label="दर"><button class="s-del" type="button" aria-label="ही सेवा काढा">&times;</button></div>`;
+$('svcBtn').addEventListener('click', () => {
+  $('svcError').hidden = true;
+  $('svcRows').innerHTML = '<div class="svc-head"><span>सेवा</span><span>मिनिटे</span><span>दर ₹</span><span></span></div>' + servicesOf().map(svcRow).join('');
+  $('svcDialog').showModal();
+});
+$('svcAdd').addEventListener('click', () => {
+  $('svcRows').insertAdjacentHTML('beforeend', svcRow());
+  const rows = $('svcRows').querySelectorAll('.s-name');
+  rows[rows.length - 1].focus();
+});
+$('svcRows').addEventListener('click', (e) => { const d = e.target.closest('.s-del'); if (d) d.closest('.svc-row').remove(); });
+$('svcCancel').addEventListener('click', () => $('svcDialog').close());
+$('svcSave').addEventListener('click', async () => {
+  const err = $('svcError');
+  err.hidden = true;
+  const list = [...$('svcRows').querySelectorAll('.svc-row')]
+    .map((r) => ({
+      name: r.querySelector('.s-name').value.trim(),
+      minutes: Math.min(120, Math.max(5, Number(r.querySelector('.s-min').value) || 20)),
+      price: Math.min(99999, Math.max(0, Number(r.querySelector('.s-price').value) || 0)),
+    }))
+    .filter((x) => x.name);
+  const names = list.map((x) => x.name.toLowerCase());
+  if (!list.length) { err.textContent = 'किमान एक सेवा ठेवा.'; err.hidden = false; return; }
+  if (new Set(names).size !== names.length) { err.textContent = 'दोन सेवांचे नाव सारखे आहे.'; err.hidden = false; return; }
+  try {
+    await backend.saveShop(token, { services: JSON.stringify(list) });
+    $('svcDialog').close();
+    toast('सेवा आणि दर जतन केले. ग्राहकांना लगेच दिसतील.', { type: 'ok' });
+    await refresh();
+  } catch (error) {
+    if (error.unauthorized) { $('svcDialog').close(); logout('तुमचे सेशन संपले. पुन्हा साइन इन करा.'); return; }
+    err.textContent = dbMessage(error); err.hidden = false;
+  }
+});
+
+/* ---------- payment QR ---------- */
+let pendingQr; // undefined = unchanged, '' = remove, 'data:...' = new picture
+const paySay = (t, bad = false) => { $('payMsg').textContent = t; $('payMsg').classList.toggle('err', bad); $('payMsg').hidden = !t; };
+function showPayPreview(src) {
+  $('payPreview').innerHTML = src ? `<img src="${esc(src)}" alt="पेमेंट QR">` : '<p class="photo-empty">अजून QR नाही. खाली "QR फोटो निवडा" दाबा.</p>';
+  $('payRemove').hidden = !src;
+}
+$('payBtn').addEventListener('click', async () => {
+  pendingQr = undefined;
+  paySay('');
+  $('payUpi').value = shop.upi_id || '';
+  showPayPreview('');
+  $('payDialog').showModal();
+  if (shop.has_qr) { try { showPayPreview(await backend.getPayQr()); } catch (err) { paySay(dbMessage(err), true); } }
+});
+$('payInput').addEventListener('change', async (e) => {
+  const f = e.target.files[0];
+  e.target.value = '';
+  if (!f) return;
+  try {
+    pendingQr = await compressImage(f, 800, 0.92);
+    showPayPreview(pendingQr);
+    paySay('फोटो निवडला. "जतन करा" दाबा.');
+  } catch { paySay('हा फोटो वापरता आला नाही.', true); }
+});
+$('payRemove').addEventListener('click', () => { pendingQr = ''; showPayPreview(''); paySay('QR काढला जाईल. "जतन करा" दाबा.'); });
+$('payClose').addEventListener('click', () => $('payDialog').close());
+$('paySave').addEventListener('click', async () => {
+  const upi = $('payUpi').value.trim();
+  if (upi && !/^[\w.\-]{2,}@[\w.\-]{2,}$/.test(upi)) { paySay('UPI आयडी असा हवा: नाव@बँक', true); return; }
+  const info = { upi_id: upi };
+  if (pendingQr !== undefined) { info.pay_qr = pendingQr; info.has_qr = !!pendingQr; }
+  try {
+    await backend.saveShop(token, info);
+    $('payDialog').close();
+    toast('पेमेंटची माहिती जतन केली.', { type: 'ok' });
+    await refresh();
+  } catch (error) {
+    if (error.unauthorized) { $('payDialog').close(); logout('तुमचे सेशन संपले. पुन्हा साइन इन करा.'); return; }
+    paySay(dbMessage(error), true);
+  }
+});
+
+/* ---------- one-time setup help (copy buttons) ---------- */
+async function copyText(text) {
+  try { await navigator.clipboard.writeText(text); return true; } catch { /* old browser: use the fallback below */ }
+  const t = document.createElement('textarea');
+  t.value = text; t.style.position = 'fixed'; t.style.opacity = '0';
+  document.body.appendChild(t); t.select();
+  let ok = false;
+  try { ok = document.execCommand('copy'); } catch { ok = false; }
+  t.remove();
+  return ok;
+}
+const helpSay = (t, bad = false) => { $('helpMsg').textContent = t; $('helpMsg').classList.toggle('err', bad); $('helpMsg').hidden = !t; };
+$('helpBtn').addEventListener('click', () => { helpSay(''); $('helpDialog').showModal(); });
+$('helpClose').addEventListener('click', () => $('helpDialog').close());
+$('copySql').addEventListener('click', async () => helpSay((await copyText(SETUP_SQL)) ? 'SQL कॉपी झाले. आता Supabase च्या SQL Editor मध्ये पेस्ट करून Run दाबा.' : 'कॉपी झाले नाही.', false));
+$('copyFn').addEventListener('click', async () => helpSay((await copyText(SETUP_FN)) ? 'कोड कॉपी झाला. आता Supabase, Edge Functions, push, Code मध्ये पेस्ट करून Deploy दाबा.' : 'कॉपी झाले नाही.', false));
+
+/* ---------- phone alerts for new bookings (works with the screen locked) ---------- */
+const pushPossible = () => MODE === 'supabase' && CONFIG.VAPID_PUBLIC_KEY && 'serviceWorker' in navigator && 'PushManager' in window && 'Notification' in window;
+
+async function subscribeBarberPhone() {
+  const reg = await withTimeout(navigator.serviceWorker.ready, 4000, 'sw.js फाइल GitHub वर अपलोड केलेली नाही');
+  const sub = (await reg.pushManager.getSubscription()) ||
+    (await reg.pushManager.subscribe({ userVisibleOnly: true, applicationServerKey: urlB64ToUint8Array(CONFIG.VAPID_PUBLIC_KEY) }));
+  await backend.saveBarberPush(token, sub.toJSON());
+}
+
+async function syncBarberPush() {
+  if (!pushPossible() || !token) { $('pushBanner').hidden = true; return; }
+  if (Notification.permission === 'granted') {
+    $('pushBanner').hidden = true;
+    try { await subscribeBarberPhone(); } catch (err) { console.error('barber push', err); toast(`फोनवरील सूचना चालू झाल्या नाहीत: ${dbMessage(err)}`, { type: 'error', ms: 7000 }); }
+  } else {
+    $('pushBanner').hidden = Notification.permission === 'denied';
+  }
+}
+
+$('pushBtn').addEventListener('click', async () => {
+  try {
+    if ((await Notification.requestPermission()) !== 'granted') { toast('सूचना चालू करण्यासाठी "परवानगी द्या" दाबा.', { type: 'error' }); return; }
+    await subscribeBarberPhone();
+    $('pushBanner').hidden = true;
+    toast('फोनवर सूचना चालू झाल्या. आता नवीन नंबर लागला की फोन वाजेल.', { type: 'ok', ms: 6000 });
+  } catch (err) {
+    toast(`चालू करता आले नाही: ${dbMessage(err)}`, { type: 'error', ms: 7000 });
   }
 });
 
@@ -2322,18 +2962,22 @@ $('walkForm').addEventListener('submit', async (e) => {
     await refresh();
   } catch (error) {
     if (error.unauthorized) { $('walkDialog').close(); logout('तुमचे सेशन संपले. पुन्हा साइन इन करा.'); return; }
-    err.textContent = error.message; err.hidden = false;
+    err.textContent = dbMessage(error); err.hidden = false;
   }
 });
 
 /* ------------------------------------------------------------------ start */
 (async function init() {
   $('ver').textContent = `आवृत्ती ${CONFIG.VERSION}`;
+  // links back to the customer page: the current file without "#barber", so they work for any file name or address
+  const here = location.href.split('#')[0];
+  $('custLink').href = here;
+  $('backLink').href = here;
   attachMic($('sName'), $('sNameMic'), $('sNameSt'), CONFIG.SPEECH_LANG, 'text');
   attachMic($('sBarber'), $('sBarberMic'), $('sBarberSt'), CONFIG.SPEECH_LANG, 'name');
   attachMic($('sPhone'), $('sPhoneMic'), $('sPhoneSt'), CONFIG.SPEECH_LANG, 'phone');
   attachMic($('sAddress'), $('sAddressMic'), $('sAddressSt'), CONFIG.SPEECH_LANG, 'text');
-  fillServices($('wService'), CONFIG.SERVICES);
+  fillServices($('wService'), servicesOf());
   attachMic($('wName'), $('wMicBtn'), $('wMicStatus'), CONFIG.SPEECH_LANG, 'name');
   attachMic($('wPhone'), $('wPhoneMicBtn'), $('wPhoneMicStatus'), CONFIG.SPEECH_LANG, 'phone');
   await registerSW();
